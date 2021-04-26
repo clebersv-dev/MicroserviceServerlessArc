@@ -9,6 +9,9 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,16 +30,33 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+@RefreshScope
 @RestController
 @RequestMapping(value = "/credit/v1/")
 @Api(value = "Credit")
 public class CreditResource {
+	
+	@Value("${test.config}")
+	private String testConfig;
+	
+	@Autowired
+	private Environment env;
 	
 	private static final Logger LOG = LoggerFactory.getLogger(CreditResource.class);
 
 	@Autowired
 	private CreditService service;
 
+	@ApiOperation(value = "Returns Hello Credit")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success"),
+			@ApiResponse(code = 401, message = "You do not have permission to access this resource ((Unauthorized))"),
+			@ApiResponse(code = 403, message = "You do not have permission to access this resource"),
+			@ApiResponse(code = 500, message = "an exception was thrown"), })
+	@RequestMapping(value = "/hello", method = RequestMethod.GET)
+	public ResponseEntity<String> getHelloCredit() {
+		return ResponseEntity.ok().body("Hello Credit");
+	}
+	
 	@ApiOperation(value = "Returns an object")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success"),
 			@ApiResponse(code = 401, message = "You do not have permission to access this resource ((Unauthorized))"),

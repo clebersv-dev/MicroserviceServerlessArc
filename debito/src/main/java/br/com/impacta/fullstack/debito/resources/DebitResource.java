@@ -28,7 +28,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 @RestController
-@RequestMapping(value = "/Debit/v1/")
+@RequestMapping(value = "/debit/v1/")
 @Api(value = "Debit")
 public class DebitResource {
 	
@@ -37,6 +37,16 @@ public class DebitResource {
 	@Autowired
 	private DebitService service;
 
+	@ApiOperation(value = "Returns Hello Debit")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success"),
+			@ApiResponse(code = 401, message = "You do not have permission to access this resource ((Unauthorized))"),
+			@ApiResponse(code = 403, message = "You do not have permission to access this resource"),
+			@ApiResponse(code = 500, message = "an exception was thrown"), })
+	@RequestMapping(value = "/hello", method = RequestMethod.GET)
+	public ResponseEntity<String> getHelloDebit() {
+		return ResponseEntity.ok().body("Hello Debit");
+	}
+	
 	@ApiOperation(value = "Returns an object")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success"),
 			@ApiResponse(code = 401, message = "You do not have permission to access this resource ((Unauthorized))"),

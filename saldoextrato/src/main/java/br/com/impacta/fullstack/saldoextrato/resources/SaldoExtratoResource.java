@@ -17,14 +17,14 @@ public class SaldoExtratoResource {
 	@Autowired
 	private SaldoExtratoService service;
 	
-	@HystrixCommand(fallbackMethod = "getDebitoAlternative")
+//	@HystrixCommand(fallbackMethod = "getDebitoAlternative")
 	@GetMapping(value = "/debito")
 	public ResponseEntity<String> getHelloDebit(){
 		ResponseEntity<String> hello = service.getHelloDebit();
 		return ResponseEntity.ok(hello.getBody());
 	}
 	
-	@HystrixCommand(fallbackMethod = "getCreditAlternative")
+//	@HystrixCommand(fallbackMethod = "getCreditAlternative")
 	@GetMapping(value = "/credito")
 	public ResponseEntity<String> getHelloCredit(){
 		ResponseEntity<String> hello = service.getHelloCredit();

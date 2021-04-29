@@ -1,0 +1,6 @@
+Sequencia de projetos para subir e funcionar corretamente
+1 - config
+2 - eureka
+3 - zull
+4 - users
+5 - os demais

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import br.com.impacta.fullstack.oauth.entities.User;
 
 @Component
-@FeignClient(name = "hr-user", path = "/users")
+@FeignClient(name = "user", path = "/users")
 public interface UserFeignClient {
 
 	@GetMapping(value = "/search")

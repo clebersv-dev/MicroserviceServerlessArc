@@ -28,7 +28,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 @RestController
-@RequestMapping(value = "/debit/v1/")
+@RequestMapping(value = "/debit/v1")
 @Api(value = "Debit")
 public class DebitResource {
 	

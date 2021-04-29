@@ -11,7 +11,7 @@
 	<groupId>br.com.impacta.fullstack</groupId>
 	<artifactId>user</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>hr-user</name>
+	<name>user</name>
 	<description>User Microservice</description>
 	<properties>
 		<java.version>14</java.version>

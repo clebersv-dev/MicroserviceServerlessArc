@@ -9,9 +9,7 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,15 +30,9 @@ import io.swagger.annotations.ApiResponses;
 
 @RefreshScope
 @RestController
-@RequestMapping(value = "/credit/v1/")
+@RequestMapping(value = "/credit/v1")
 @Api(value = "Credit")
 public class CreditResource {
-	
-	@Value("${test.config}")
-	private String testConfig;
-	
-	@Autowired
-	private Environment env;
 	
 	private static final Logger LOG = LoggerFactory.getLogger(CreditResource.class);
 

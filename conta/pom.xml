@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.impacta.fullstack</groupId>
-	<artifactId>credito</artifactId>
+	<artifactId>conta</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>credito</name>
-	<description>MS para consultar credito da conta do cliente</description>
+	<name>conta</name>
+	<description>MS para consultar conta da conta do cliente</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

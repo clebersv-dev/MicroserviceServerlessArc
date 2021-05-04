@@ -12,7 +12,7 @@ import br.com.impacta.fullstack.credito.domain.Credit;
 public class CreditDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	private Integer id;
+	private Long id;
 	
 	@NotEmpty(message="Mandatory filling")
 	private String description;
@@ -28,11 +28,11 @@ public class CreditDTO implements Serializable {
 		creditValue = obj.getCredit();
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

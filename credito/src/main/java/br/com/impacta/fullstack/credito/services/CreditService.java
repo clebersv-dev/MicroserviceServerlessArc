@@ -24,7 +24,7 @@ public class CreditService {
 	@Autowired
 	private CreditRepository repo;
 
-	public Credit find(Integer id) {
+	public Credit find(Long id) {
 		Optional<Credit> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"object not found! Id: " + id + ", Type: " + Credit.class.getName()));
@@ -36,12 +36,12 @@ public class CreditService {
 	}
 	
 	public Credit update(Credit obj) {
-		Credit newObj = find(obj.getId());
+		Credit newObj = find(Long.valueOf(obj.getId()));
 		updateData(newObj, obj);
 		return repo.save(newObj);
 	}
 	
-	public void delete(Integer id) {
+	public void delete(Long id) {
 		find(id);
 		try {
 			repo.deleteById(id);

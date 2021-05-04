@@ -55,7 +55,7 @@ public class CreditResource {
 			@ApiResponse(code = 403, message = "You do not have permission to access this resource"),
 			@ApiResponse(code = 500, message = "an exception was thrown"), })
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Credit> find(@PathVariable Integer id) {
+	public ResponseEntity<Credit> find(@PathVariable Long id) {
 		Credit obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
@@ -79,7 +79,7 @@ public class CreditResource {
 			@ApiResponse(code = 403, message = "You do not have permission to access this resource"),
 			@ApiResponse(code = 500, message = "an exception was thrown"), })
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Void> update(@Valid @RequestBody CreditDTO objDto, @PathVariable Integer id) {
+	public ResponseEntity<Void> update(@Valid @RequestBody CreditDTO objDto, @PathVariable Long id) {
 		Credit obj = service.fromDTO(objDto);
 		obj.setId(id);
 		obj = service.update(obj);
@@ -92,7 +92,7 @@ public class CreditResource {
 			@ApiResponse(code = 403, message = "You do not have permission to access this resource"),
 			@ApiResponse(code = 500, message = "an exception was thrown"), })
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Void> delete(@PathVariable Integer id) {
+	public ResponseEntity<Void> delete(@PathVariable Long id) {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}

@@ -15,6 +15,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import br.com.impacta.fullstack.user.util.ObjetoUtil;
+
 @Entity
 @Table(name = "tb_user")
 public class User implements Serializable {
@@ -23,11 +25,16 @@ public class User implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
 	private Long id;
+
+	@Column(name = "NAME", columnDefinition = "varchar(200)", nullable = false )
 	private String name;
 	
-	@Column(unique = true)
+	@Column(name = "EMAIL", unique = true, columnDefinition = "varchar(130)", nullable = false)
 	private String email;
+	
+	@Column(name = "PASSWORD", columnDefinition = "varchar(255)", nullable = false)
 	private String password;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
@@ -37,13 +44,16 @@ public class User implements Serializable {
 	)
 	private Set<Role> roles = new HashSet<>();
 	
-	public User() {
-		
-	}
+	public User() {}
 
-	public User(Long id, String name, String email, String password) {
+	public User(String name, String email, String password) {
 		super();
-		this.id = id;
+		
+		if (ObjetoUtil.verifica(name).isPresent() && ObjetoUtil.verifica(email).isPresent()
+				&& ObjetoUtil.verifica(password).isPresent()) {
+			throw new IllegalArgumentException("Valores atribuidos inválidos!");
+		}
+		
 		this.name = name;
 		this.email = email;
 		this.password = password;
@@ -109,4 +119,11 @@ public class User implements Serializable {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", roles=" + roles
+				+ "]";
+	}
+
 }

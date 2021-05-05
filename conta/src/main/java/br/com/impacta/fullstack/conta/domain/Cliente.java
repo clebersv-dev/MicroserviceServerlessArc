@@ -29,17 +29,17 @@ public class Cliente implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "TB_ID")
 	private Long id;
-	
-    @OneToMany(mappedBy="cliente")
-    @JsonIgnore
-    private List<Conta> conta = new ArrayList<>();
+
+	@OneToMany(mappedBy = "cliente")
+	@JsonIgnore
+	private List<Conta> conta = new ArrayList<>();
 
 	@Column(name = "TB_NOME", columnDefinition = "varchar(140)", nullable = false)
 	private String nome;
 
 	@Column(name = "TB_CPF_CNPJ", columnDefinition = "varchar(14)", nullable = false)
 	private String cpfCnpj;
-	
+
 	@Embedded
 	@Column(name = "Endereco", columnDefinition = "varchar(150)", nullable = false)
 	private Endereco endereco;
@@ -47,13 +47,14 @@ public class Cliente implements Serializable {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "TB_TIPO")
 	private TipoCliente tipo;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "TB_DATA_CADASTRO")
 	private Date dataCadastro;
 
-	public Cliente() {}
-	
+	public Cliente() {
+	}
+
 	public Cliente(String nome, String cpfCnpj, Endereco endereco, TipoCliente tipo) {
 		this.nome = nome;
 		this.cpfCnpj = cpfCnpj;
@@ -61,7 +62,7 @@ public class Cliente implements Serializable {
 		this.dataCadastro = new Date();
 		this.tipo = tipo;
 	}
-	
+
 	public Cliente(Long id, String nome, String cpfCnpj, Endereco endereco, TipoCliente tipo) {
 		this.id = id;
 		this.nome = nome;
@@ -79,6 +80,66 @@ public class Cliente implements Serializable {
 		this.endereco = endereco;
 		this.dataCadastro = new Date();
 		this.tipo = tipo;
+	}
+
+	public List<Conta> getConta() {
+		return conta;
+	}
+
+	public void addConta(Conta conta) {
+		this.conta.add(conta);
+	}
+
+	public void setConta(List<Conta> conta) {
+		this.conta = conta;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCpfCnpj() {
+		return cpfCnpj;
+	}
+
+	public void setCpfCnpj(String cpfCnpj) {
+		this.cpfCnpj = cpfCnpj;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public TipoCliente getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoCliente tipo) {
+		this.tipo = tipo;
+	}
+
+	public Date getDataCadastro() {
+		return dataCadastro;
+	}
+
+	public void setDataCadastro(Date dataCadastro) {
+		this.dataCadastro = dataCadastro;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 	@Override
@@ -131,65 +192,5 @@ public class Cliente implements Serializable {
 		if (tipo != other.tipo)
 			return false;
 		return true;
-	}
-
-	public List<Conta> getConta() {
-		return conta;
-	}
-	
-	public void addConta(Conta conta) {
-		this.conta.add(conta);
-	}
-	
-	public void setConta(List<Conta> conta) {
-		this.conta = conta;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getCpfCnpj() {
-		return cpfCnpj;
-	}
-
-	public void setCpfCnpj(String cpfCnpj) {
-		this.cpfCnpj = cpfCnpj;
-	}
-
-	public Endereco getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-
-	public TipoCliente getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(TipoCliente tipo) {
-		this.tipo = tipo;
-	}
-
-	public Date getDataCadastro() {
-		return dataCadastro;
-	}
-
-	public void setDataCadastro(Date dataCadastro) {
-		this.dataCadastro = dataCadastro;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
-	public Long getId() {
-		return id;
 	}
 }

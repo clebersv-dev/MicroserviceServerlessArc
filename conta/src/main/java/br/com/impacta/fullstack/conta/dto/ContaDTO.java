@@ -7,9 +7,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class ContaDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
+
 	@JsonIgnore
-	private Integer id;
-	@JsonIgnore
+	private Long id;
 	private String titular;
 	private String banco;
 	private String agencia;
@@ -23,7 +23,7 @@ public class ContaDTO implements Serializable {
 		super();
 	}
 
-	public ContaDTO(Integer id, String titular, String banco, String agencia, String numero, BigDecimal saldo,
+	public ContaDTO(Long id, String titular, String banco, String agencia, String numero, BigDecimal saldo,
 			BigDecimal limite, ClienteDTO cliente) {
 		super();
 		this.id = id;
@@ -36,11 +36,11 @@ public class ContaDTO implements Serializable {
 		this.cliente = cliente;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -100,4 +100,71 @@ public class ContaDTO implements Serializable {
 		this.cliente = cliente;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((agencia == null) ? 0 : agencia.hashCode());
+		result = prime * result + ((banco == null) ? 0 : banco.hashCode());
+		result = prime * result + ((cliente == null) ? 0 : cliente.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((limite == null) ? 0 : limite.hashCode());
+		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
+		result = prime * result + ((saldo == null) ? 0 : saldo.hashCode());
+		result = prime * result + ((titular == null) ? 0 : titular.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ContaDTO other = (ContaDTO) obj;
+		if (agencia == null) {
+			if (other.agencia != null)
+				return false;
+		} else if (!agencia.equals(other.agencia))
+			return false;
+		if (banco == null) {
+			if (other.banco != null)
+				return false;
+		} else if (!banco.equals(other.banco))
+			return false;
+		if (cliente == null) {
+			if (other.cliente != null)
+				return false;
+		} else if (!cliente.equals(other.cliente))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (limite == null) {
+			if (other.limite != null)
+				return false;
+		} else if (!limite.equals(other.limite))
+			return false;
+		if (numero == null) {
+			if (other.numero != null)
+				return false;
+		} else if (!numero.equals(other.numero))
+			return false;
+		if (saldo == null) {
+			if (other.saldo != null)
+				return false;
+		} else if (!saldo.equals(other.saldo))
+			return false;
+		if (titular == null) {
+			if (other.titular != null)
+				return false;
+		} else if (!titular.equals(other.titular))
+			return false;
+		return true;
+	}
+	
 }

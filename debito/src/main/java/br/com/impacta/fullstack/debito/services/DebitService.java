@@ -1,70 +1,50 @@
 package br.com.impacta.fullstack.debito.services;
 
-
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
-import br.com.impacta.fullstack.debito.domain.Debit;
+import br.com.impacta.fullstack.debito.domain.Conta;
+import br.com.impacta.fullstack.debito.domain.Extrato;
 import br.com.impacta.fullstack.debito.dto.DebitDTO;
-import br.com.impacta.fullstack.debito.exceptions.DataIntegrityException;
 import br.com.impacta.fullstack.debito.exceptions.ObjectNotFoundException;
-import br.com.impacta.fullstack.debito.repository.DebitRepository;
-
+import br.com.impacta.fullstack.debito.repository.ContaRepository;
+import br.com.impacta.fullstack.debito.repository.ExtratoRepository;
 
 @Service
 public class DebitService {
 
 	@Autowired
-	private DebitRepository repo;
+	private ContaRepository repoAcc;
+	
+	@Autowired
+	private ExtratoRepository repoExt;
 
-	public Debit find(Integer id) {
-		Optional<Debit> obj = repo.findById(id);
+	public List<Extrato> findExtratoById(Long id) {
+		Optional<List<Extrato>> obj = Optional.of(repoExt.findAllById(Arrays.asList(id)));
+		return obj.orElseThrow(() -> new ObjectNotFoundException(Extrato.class.getName()));
+	}
+	
+	public Conta insert(DebitDTO obj) {
+		Conta cc = this.findAccount(obj.getId());
+		
+		this.createExtrato(cc, obj);
+		
+		return repoAcc.save(cc);
+	}
+	
+
+	private void createExtrato(Conta cc, DebitDTO obj) {
+		cc.withDraw(obj.getCreditValue());
+	}
+
+
+	public Conta findAccount(Long id) {
+		Optional<Conta> obj = repoAcc.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
-				"object not found! Id: " + id + ", Type: " + Debit.class.getName()));
-	}
-	
-	public Debit insert(Debit obj) {
-		obj.setId(null);
-		return repo.save(obj);
-	}
-	
-	public Debit update(Debit obj) {
-		Debit newObj = find(obj.getId());
-		updateData(newObj, obj);
-		return repo.save(newObj);
-	}
-	
-	public void delete(Integer id) {
-		find(id);
-		try {
-			repo.deleteById(id);
-		}
-		catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityException("You cannot delete a debit that has products");
-		}
-	}
-	
-	public List<Debit> findAll() {
-		return repo.findAll();
-	}
-	
-	public Page<Debit> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
-		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
-		return repo.findAll(pageRequest);
-	}
-	
-	public Debit fromDTO(DebitDTO objDto) {
-		return new Debit(objDto.getId(), objDto.getDescription());
-	}
-	
-	private void updateData(Debit newObj, Debit obj) {
-		newObj.setDescription(obj.getDescription());
+				"object not found! Id: " + id + ", Type: " + Conta.class.getName()));
 	}
 }

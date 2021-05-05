@@ -1,70 +1,62 @@
 package br.com.impacta.fullstack.credito.services;
 
-
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
-import br.com.impacta.fullstack.credito.domain.Credit;
+import br.com.impacta.fullstack.credito.domain.Conta;
+import br.com.impacta.fullstack.credito.domain.Extrato;
 import br.com.impacta.fullstack.credito.dto.CreditDTO;
-import br.com.impacta.fullstack.credito.exceptions.DataIntegrityException;
 import br.com.impacta.fullstack.credito.exceptions.ObjectNotFoundException;
-import br.com.impacta.fullstack.credito.repository.CreditRepository;
-
+import br.com.impacta.fullstack.credito.repository.ContaRepository;
+import br.com.impacta.fullstack.credito.repository.ExtratoRepository;
 
 @Service
 public class CreditService {
-
+	
 	@Autowired
-	private CreditRepository repo;
+	private ContaRepository repoAcc;
+	
+	@Autowired
+	private ExtratoRepository repoExt;
 
-	public Credit find(Long id) {
-		Optional<Credit> obj = repo.findById(id);
+//	public Credit findCreditById(Long id) {
+//		Optional<Credit> obj = repo.findById(id);
+//		return obj.orElseThrow(() -> new ObjectNotFoundException(
+//				"object not found! Id: " + id + ", Type: " + Credit.class.getName()));
+//	}
+	
+	public List<Extrato> findExtratoById(Long id) {
+		Optional<List<Extrato>> obj = Optional.of(repoExt.findAllById(Arrays.asList(id)));
+		return obj.orElseThrow(() -> new ObjectNotFoundException(Extrato.class.getName()));
+	}
+	
+	public Conta insert(CreditDTO obj) {
+		Conta cc = this.findAccount(obj.getId());
+		
+		this.createExtrato(cc, obj);
+		
+		return repoAcc.save(cc);
+	}
+	
+
+	private void createExtrato(Conta cc, CreditDTO obj) {
+		cc.deposit(obj.getCreditValue());
+	}
+
+
+	public Conta findAccount(Long id) {
+		Optional<Conta> obj = repoAcc.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
-				"object not found! Id: " + id + ", Type: " + Credit.class.getName()));
+				"object not found! Id: " + id + ", Type: " + Conta.class.getName()));
 	}
-	
-	public Credit insert(Credit obj) {
-		obj.setId(null);
-		return repo.save(obj);
-	}
-	
-	public Credit update(Credit obj) {
-		Credit newObj = find(Long.valueOf(obj.getId()));
-		updateData(newObj, obj);
-		return repo.save(newObj);
-	}
-	
-	public void delete(Long id) {
-		find(id);
-		try {
-			repo.deleteById(id);
-		}
-		catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityException("You cannot delete a credit that has products");
-		}
-	}
-	
-	public List<Credit> findAll() {
-		return repo.findAll();
-	}
-	
-	public Page<Credit> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
-		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
-		return repo.findAll(pageRequest);
-	}
-	
-	public Credit fromDTO(CreditDTO objDto) {
-		return new Credit(objDto.getId(), objDto.getDescription());
-	}
-	
-	private void updateData(Credit newObj, Credit obj) {
-		newObj.setDescription(obj.getDescription());
-	}
+
+//	public List<Credit> findAllCreditById(Long id) {
+//		Optional<List<Credit>> obj = Optional.of(repo.findAllById(Arrays.asList(id)));
+//		return obj.orElseThrow(() -> new ObjectNotFoundException(
+//				"object not found! Id: " + id + ", Type: " + Credit.class.getName()));
+//	}
 }

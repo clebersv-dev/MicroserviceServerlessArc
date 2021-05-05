@@ -3,10 +3,6 @@ package br.com.impacta.fullstack.credito.dto;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import javax.validation.constraints.NotEmpty;
-
-import br.com.impacta.fullstack.credito.domain.Credit;
-
 
 
 public class CreditDTO implements Serializable {
@@ -14,18 +10,15 @@ public class CreditDTO implements Serializable {
 	
 	private Long id;
 	
-	@NotEmpty(message="Mandatory filling")
-	private String description;
-
 	private BigDecimal creditValue;
 	
 	public CreditDTO() {
 	}
-	
-	public CreditDTO(Credit obj) {
-		id = obj.getId();
-		description = obj.getDescription();
-		creditValue = obj.getCredit();
+
+	public CreditDTO(Long id, BigDecimal creditValue) {
+		super();
+		this.id = id;
+		this.creditValue = creditValue;
 	}
 
 	public Long getId() {
@@ -36,19 +29,11 @@ public class CreditDTO implements Serializable {
 		this.id = id;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public BigDecimal getValue() {
+	public BigDecimal getCreditValue() {
 		return creditValue;
 	}
 
-	public void setValue(BigDecimal creditValue) {
+	public void setCreditValue(BigDecimal creditValue) {
 		this.creditValue = creditValue;
-	}	
+	}
 }

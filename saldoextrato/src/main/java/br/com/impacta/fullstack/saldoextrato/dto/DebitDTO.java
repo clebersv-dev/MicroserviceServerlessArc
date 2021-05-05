@@ -1,4 +1,4 @@
-package br.com.impacta.fullstack.debito.dto;
+package br.com.impacta.fullstack.saldoextrato.dto;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

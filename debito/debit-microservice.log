@@ -7450,3 +7450,8 @@ java.lang.IllegalArgumentException: no balance available
 323705 [http-nio-8090-exec-4] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 323705 [http-nio-8090-exec-4] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 323709 [http-nio-8090-exec-4] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+3994003 [RMI TCP Connection(99)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+3994085 [RMI TCP Connection(99)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+3994088 [RMI TCP Connection(99)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+3994101 [RMI TCP Connection(99)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
+3994114 [RMI TCP Connection(99)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.

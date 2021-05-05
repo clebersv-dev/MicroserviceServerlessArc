@@ -10405,3 +10405,8 @@ java.lang.NullPointerException: Cannot invoke "org.apache.catalina.Service.getCo
 1774851 [http-nio-8091-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 1774852 [http-nio-8091-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 1774858 [http-nio-8091-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+13938444 [RMI TCP Connection(242)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+13938489 [RMI TCP Connection(242)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+13938494 [RMI TCP Connection(242)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13938501 [RMI TCP Connection(242)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13938517 [RMI TCP Connection(242)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

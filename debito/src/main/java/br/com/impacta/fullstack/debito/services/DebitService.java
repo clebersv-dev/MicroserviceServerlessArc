@@ -38,7 +38,7 @@ public class DebitService {
 	
 
 	private void createExtrato(Conta cc, DebitDTO obj) {
-		cc.withDraw(obj.getCreditValue());
+		cc.withDraw(obj.getDebitValue());
 	}
 
 

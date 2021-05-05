@@ -81,6 +81,17 @@ public class ContaResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
+	@ApiOperation(value = "Returns an list of accounts")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success"),
+			@ApiResponse(code = 401, message = "You do not have permission to access this resource ((Unauthorized))"),
+			@ApiResponse(code = 403, message = "You do not have permission to access this resource"),
+			@ApiResponse(code = 500, message = "an exception was thrown"), })
+	@RequestMapping(value = "/contas", method = RequestMethod.GET)
+	public ResponseEntity<List<Conta>> findAllAccounts() {
+		List<Conta> obj = service.findAllAccounts();
+		return ResponseEntity.ok().body(obj);
+	}
+	
 	@ApiOperation(value = "Returns an Client object")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success"),
 			@ApiResponse(code = 401, message = "You do not have permission to access this resource ((Unauthorized))"),
@@ -92,7 +103,7 @@ public class ContaResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
-	@ApiOperation(value = "Returns an Client object")
+	@ApiOperation(value = "Returns an list of clients")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success"),
 			@ApiResponse(code = 401, message = "You do not have permission to access this resource ((Unauthorized))"),
 			@ApiResponse(code = 403, message = "You do not have permission to access this resource"),
@@ -102,6 +113,4 @@ public class ContaResource {
 		List<Cliente> obj = service.findAllClients();
 		return ResponseEntity.ok().body(obj);
 	}
-
-
 }

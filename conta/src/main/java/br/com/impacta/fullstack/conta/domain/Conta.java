@@ -35,7 +35,8 @@ public class Conta {
 	private Cliente cliente;
 	
 	public Conta() {
-		super();
+		this.saldo = BigDecimal.ZERO;
+		this.limite = BigDecimal.ZERO;
 	}
 	
 	public Conta(String titular, String banco, String agencia, String numero, BigDecimal saldo,
@@ -45,8 +46,8 @@ public class Conta {
 		this.banco = banco;
 		this.agencia = agencia;
 		this.numero = numero;
-		this.saldo = saldo;
-		this.limite = limite;
+		this.saldo = saldo == null ? BigDecimal.ZERO : saldo;
+		this.limite = limite == null ? BigDecimal.ZERO: limite;
 	}
 
 	public Long getId() {

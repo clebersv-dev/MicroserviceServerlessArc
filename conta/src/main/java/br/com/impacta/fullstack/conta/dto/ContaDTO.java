@@ -3,29 +3,26 @@ package br.com.impacta.fullstack.conta.dto;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class ContaDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	@JsonIgnore
 	private Integer id;
-
+	@JsonIgnore
 	private String titular;
-
 	private String banco;
-
 	private String agencia;
-
 	private String numero;
-	
+	@JsonIgnore
 	private BigDecimal saldo;
-
 	private BigDecimal limite;
-
 	private ClienteDTO cliente;
 
 	public ContaDTO() {
 		super();
 	}
-	
+
 	public ContaDTO(Integer id, String titular, String banco, String agencia, String numero, BigDecimal saldo,
 			BigDecimal limite, ClienteDTO cliente) {
 		super();
@@ -102,5 +99,5 @@ public class ContaDTO implements Serializable {
 	public void setCliente(ClienteDTO cliente) {
 		this.cliente = cliente;
 	}
-	
+
 }

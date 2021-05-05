@@ -55,8 +55,22 @@ public class Cartao {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "TB_VALIDADE")
 	private Calendar validade;
-	
-	private String novo;
+
+	public Cartao() {
+	}
+
+	public Cartao(String titular, String numero, String bandeira,  BigDecimal limite, TipoCartao tipo,
+			Cliente cliente) {
+		this.titular = titular;
+		this.numero = numero;
+		this.bandeira = bandeira;
+		this.limite = limite;
+		this.tipo = tipo;
+		this.cliente = cliente;
+		Calendar validadeTemp = Calendar.getInstance();
+		validadeTemp.add(Calendar.YEAR, 5);
+		this.validade = validadeTemp;
+	}
 
 	public String getTitular() {
 		return titular;
@@ -83,7 +97,7 @@ public class Cartao {
 	}
 
 	public BigDecimal getSaldo() {
-		return saldo;
+		return this.limite.subtract(this.saldo == null ? BigDecimal.ZERO : this.saldo); 
 	}
 
 	public void setSaldo(BigDecimal saldo) {
@@ -134,12 +148,8 @@ public class Cartao {
 		this.tipo = tipo;
 	}
 
-	public String getNovo() {
-		return novo;
-	}
-
-	public void setNovo(String novo) {
-		this.novo = novo;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }

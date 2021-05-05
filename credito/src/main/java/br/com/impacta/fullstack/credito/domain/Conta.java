@@ -29,6 +29,9 @@ public class Conta {
 	private BigDecimal saldo;
 	@Column(name = "TB_LIMITE")
 	private BigDecimal limite;
+	
+	@OneToOne
+	private Extrato extrato;
 
 	@OneToOne
 	@JoinColumn(unique = true)

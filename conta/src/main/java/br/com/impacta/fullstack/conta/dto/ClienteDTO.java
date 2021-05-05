@@ -3,18 +3,22 @@ package br.com.impacta.fullstack.conta.dto;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.com.impacta.fullstack.conta.domain.Endereco;
 import br.com.impacta.fullstack.conta.enums.TipoCliente;
 
 public class ClienteDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@JsonIgnore
 	private Long id;
 	
 	private String nome;
 
 	private String cpfCnpj;
 	
+	@JsonIgnore
 	private Date dataCadastro;
 
 	private TipoCliente tipo;

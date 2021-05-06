@@ -1,6 +1,8 @@
 package br.com.impacta.fullstack.saldoextrato.domain;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Conta {
 
@@ -12,7 +14,7 @@ public class Conta {
 	private BigDecimal saldo;
 	private BigDecimal limite;
 
-	private Extrato extrato;
+	private List<Extrato> extrato = new ArrayList<>();
 	
 	private Cliente cliente;
 	
@@ -48,10 +50,10 @@ public class Conta {
         validateValue(value);
 
         BigDecimal ret = this.saldo.subtract(value);
-        if (limite.compareTo(ret) == 1) {
+        if (ret.compareTo(this.limite) <= -1) {
             throw new IllegalArgumentException("no balance available");
         }
-        this.setSaldo(this.saldo.subtract(value));
+        this.setSaldo(saldo.subtract(value));
     }
 
     public void deposit(BigDecimal value) {
@@ -133,12 +135,12 @@ public class Conta {
 		this.cliente = cliente;
 	}
 	
-	public Extrato getExtrato() {
+	public List<Extrato> getExtrato() {
 		return extrato;
 	}
 
 	public void setExtrato(Extrato extrato) {
-		this.extrato = extrato;
+		this.extrato.add(extrato);
 	}
 
 	@Override

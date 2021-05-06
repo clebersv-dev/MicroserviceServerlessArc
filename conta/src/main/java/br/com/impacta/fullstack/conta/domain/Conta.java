@@ -72,10 +72,10 @@ public class Conta {
         validateValue(value);
 
         BigDecimal ret = this.saldo.subtract(value);
-        if (ret.compareTo(BigDecimal.ZERO) < 0) {
+        if (ret.compareTo(this.limite) <= -1) {
             throw new IllegalArgumentException("no balance available");
         }
-        this.saldo.subtract(value);
+        this.setSaldo(saldo.subtract(value));
     }
 
     public void deposit(BigDecimal value) {

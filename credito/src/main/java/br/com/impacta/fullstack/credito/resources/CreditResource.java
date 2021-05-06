@@ -28,8 +28,6 @@ import io.swagger.annotations.ApiResponses;
 @RequestMapping(value = "/credit/v1")
 @Api(value = "Credit")
 public class CreditResource {
-	
-	private static final Logger LOG = LoggerFactory.getLogger(CreditResource.class);
 
 	@Autowired
 	private CreditService service;

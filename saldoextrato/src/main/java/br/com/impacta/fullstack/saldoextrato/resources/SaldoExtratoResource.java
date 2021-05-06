@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.impacta.fullstack.saldoextrato.domain.Conta;
 import br.com.impacta.fullstack.saldoextrato.domain.Extrato;
+import br.com.impacta.fullstack.saldoextrato.dto.CreditDTO;
 import br.com.impacta.fullstack.saldoextrato.dto.DebitDTO;
 import br.com.impacta.fullstack.saldoextrato.services.SaldoExtratoService;
 
@@ -43,6 +45,19 @@ public class SaldoExtratoResource {
 		ResponseEntity<String> hello = service.getHelloDebit();
 		return ResponseEntity.ok(hello.getBody());
 	}
+	
+	@PostMapping
+	public ResponseEntity<Void> insert(@Valid @RequestBody CreditDTO objDto) {
+		service.insert(objDto);
+		return ResponseEntity.noContent().build();
+	}
+	
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<List<Extrato>> findCreditById(@PathVariable Long id) {
+		List<Extrato> obj = service.findExtratoCreditById(id);
+		return ResponseEntity.ok().body(obj);
+	}
+	
 //	
 ////	@HystrixCommand(fallbackMethod = "getCreditAlternative")
 //	@GetMapping(value = "/credito")

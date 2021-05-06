@@ -1,7 +1,7 @@
 package br.com.impacta.fullstack.credito.domain;
 
 import java.math.BigDecimal;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -38,6 +38,7 @@ public class Cartao {
 
 	@Column(name = "TB_SALDO")
 	private BigDecimal saldo;
+	
 	@Column(name = "TB_LIMITE")
 	private BigDecimal limite;
 
@@ -54,7 +55,7 @@ public class Cartao {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "TB_VALIDADE")
-	private Calendar validade;
+	private Date validade;
 	
 	private String novo;
 
@@ -106,12 +107,16 @@ public class Cartao {
 		this.cliente = cliente;
 	}
 
-	public Calendar getValidade() {
+	public Date getValidade() {
 		return validade;
 	}
 
-	public void setValidade(Calendar validade) {
+	public void setValidade(Date validade) {
 		this.validade = validade;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Long getId() {

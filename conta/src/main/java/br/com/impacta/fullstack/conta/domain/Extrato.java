@@ -1,4 +1,4 @@
-package br.com.impacta.fullstack.credito.domain;
+package br.com.impacta.fullstack.conta.domain;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -13,7 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import br.com.impacta.fullstack.credito.enums.TipoOperacao;
+import br.com.impacta.fullstack.conta.enums.TipoOperacao;
 
 @Entity(name = "TB_EXTRATO")
 public class Extrato {

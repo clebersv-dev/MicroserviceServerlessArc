@@ -13,7 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import br.com.impacta.fullstack.debito.enums.Operacao;
+import br.com.impacta.fullstack.debito.enums.TipoOperacao;
 
 @Entity(name = "TB_EXTRATO")
 public class Extrato {
@@ -25,7 +25,7 @@ public class Extrato {
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "TB_OPERACAO")
-	private Operacao operacao;
+	private TipoOperacao operacao;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "TB_DATA")
@@ -38,18 +38,18 @@ public class Extrato {
 		super();
 	}
 	
-	public Extrato(Operacao operacao, BigDecimal valor) {
+	public Extrato(TipoOperacao operacao, BigDecimal valor) {
 		super();
 		this.operacao = operacao;
 		this.data = new Date();
 		this.valor = valor;
 	}
 	
-	public Operacao getOperacao() {
+	public TipoOperacao getOperacao() {
 		return operacao;
 	}
 
-	public void setOperacao(Operacao operacao) {
+	public void setOperacao(TipoOperacao operacao) {
 		this.operacao = operacao;
 	}
 

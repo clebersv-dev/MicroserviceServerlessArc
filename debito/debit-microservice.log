@@ -7455,3 +7455,433 @@ java.lang.IllegalArgumentException: no balance available
 3994088 [RMI TCP Connection(99)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 3994101 [RMI TCP Connection(99)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
 3994114 [RMI TCP Connection(99)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.
+3451 [restartedMain] INFO  b.c.i.f.debito.DebitApplication - Starting DebitApplication on DESKTOP-VEPP0T8 with PID 11880 (D:\MBA\Microservice & Serverless Arc\Atividade de Conclusão\debito\target\classes started by Cleber in D:\MBA\Microservice & Serverless Arc\Atividade de Conclusão\debito)
+3456 [restartedMain] INFO  b.c.i.f.debito.DebitApplication - No active profile set, falling back to default profiles: default
+3553 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+3554 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+5762 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+5887 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 113ms. Found 7 JPA repository interfaces.
+6817 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8090 (http)
+6833 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+6834 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+7005 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+7007 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3451 ms
+7074 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+7705 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+7714 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/banco_generic'
+8047 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+8218 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.28.Final
+8545 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+8852 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+10169 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10181 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10242 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+11102 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+11347 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+11464 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+11838 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8090 (http) with context path ''
+11839 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+11855 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+11885 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+12040 [restartedMain] INFO  b.c.i.f.debito.DebitApplication - Started DebitApplication in 10.637 seconds (JVM running for 13.107)
+1135412 [RMI TCP Connection(29)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+1135484 [RMI TCP Connection(29)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+1135495 [RMI TCP Connection(29)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+1135504 [RMI TCP Connection(29)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+1135520 [RMI TCP Connection(29)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2817 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+4695 [restartedMain] INFO  b.c.i.f.debito.DebitApplication - The following profiles are active: test
+5791 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+6036 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 235ms. Found 7 JPA repository interfaces.
+6383 [restartedMain] INFO  o.s.c.context.scope.GenericScope - BeanFactory id=659a89da-5eba-332b-89f6-228e4596a619
+7090 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 0 (http)
+7103 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+7103 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+7298 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+7299 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2587 ms
+7357 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+7750 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+7757 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/banco_generic'
+7937 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+8006 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.28.Final
+8210 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+8400 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+9617 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+9628 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+9677 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+10328 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10508 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+10541 [restartedMain] WARN  c.n.c.s.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+10541 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+10548 [restartedMain] WARN  c.n.c.s.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+10549 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+10744 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+12234 [restartedMain] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+12269 [restartedMain] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses Jersey
+13398 [restartedMain] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+13428 [restartedMain] WARN  o.s.c.l.c.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+13620 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 60327 (http) with context path ''
+13623 [restartedMain] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 60327
+13634 [restartedMain] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+13680 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+13801 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+13802 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+13968 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+13969 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+14313 [restartedMain] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+14344 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+14344 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+14344 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+14345 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+14345 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+14345 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+14345 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+14565 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+14568 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+14571 [restartedMain] INFO  c.n.d.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+14576 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1620258009102 with initial instances count: 3
+14580 [restartedMain] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application DEBITO with eureka with status UP
+14581 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1620258009108, current=UP, previous=STARTING]
+14583 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:680345790c3f61a689ed62b250ad4a83: registering service...
+14626 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:680345790c3f61a689ed62b250ad4a83 - registration status: 204
+15697 [restartedMain] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+15698 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+15716 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+15782 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+15929 [restartedMain] INFO  b.c.i.f.debito.DebitApplication - Started DebitApplication in 15.073 seconds (JVM running for 16.81)
+106705 [http-nio-auto-1-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+106706 [http-nio-auto-1-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+106714 [http-nio-auto-1-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+314349 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+344402 [http-nio-auto-1-exec-7] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: no balance available] with root cause
+java.lang.IllegalArgumentException: no balance available
+	at br.com.impacta.fullstack.debito.domain.Conta.withDraw(Conta.java:76)
+	at br.com.impacta.fullstack.debito.services.DebitService.createExtrato(DebitService.java:41)
+	at br.com.impacta.fullstack.debito.services.DebitService.insert(DebitService.java:34)
+	at br.com.impacta.fullstack.debito.resources.DebitResource.insert(DebitResource.java:53)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+434734 [Thread-3] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application DEBITO with eureka with status DOWN
+434735 [Thread-3] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1620258429262, current=DOWN, previous=UP]
+434735 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:680345790c3f61a689ed62b250ad4a83: registering service...
+434753 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:680345790c3f61a689ed62b250ad4a83 - registration status: 204
+434774 [Thread-3] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+434784 [Thread-3] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+434790 [Thread-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+434804 [Thread-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+434805 [Thread-3] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+437810 [Thread-3] INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+437820 [Thread-3] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:680345790c3f61a689ed62b250ad4a83 - deregister  status: 200
+437838 [Thread-3] INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+441139 [restartedMain] INFO  b.c.i.f.debito.DebitApplication - The following profiles are active: test
+441682 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+441719 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36ms. Found 7 JPA repository interfaces.
+441823 [restartedMain] INFO  o.s.c.context.scope.GenericScope - BeanFactory id=659a89da-5eba-332b-89f6-228e4596a619
+441944 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 0 (http)
+441946 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+441946 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+442033 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+442033 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 888 ms
+442058 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+442089 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+442089 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/banco_generic'
+442138 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+442148 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+442399 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+442399 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+442427 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+442654 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+442703 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+442712 [restartedMain] WARN  c.n.c.s.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+442712 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+442757 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+444071 [restartedMain] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+444091 [restartedMain] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses Jersey
+445201 [restartedMain] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+445216 [restartedMain] WARN  o.s.c.l.c.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+445262 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 60707 (http) with context path ''
+445263 [restartedMain] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 60707
+445265 [restartedMain] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+445272 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+445278 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+445278 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+445279 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+445279 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+445525 [restartedMain] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+445527 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+445527 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+445527 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+445527 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+445527 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+445527 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+445527 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+445542 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+445545 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+445547 [restartedMain] INFO  c.n.d.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+445549 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1620258440075 with initial instances count: 4
+445553 [restartedMain] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application DEBITO with eureka with status UP
+445553 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1620258440080, current=UP, previous=STARTING]
+445554 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:4d35eb79cb87a645e44afbd69ba6e954: registering service...
+445580 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:4d35eb79cb87a645e44afbd69ba6e954 - registration status: 204
+446677 [restartedMain] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+446677 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+446678 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+446683 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+446705 [restartedMain] INFO  b.c.i.f.debito.DebitApplication - Started DebitApplication in 8.769 seconds (JVM running for 447.585)
+446707 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+581176 [Thread-15] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application DEBITO with eureka with status DOWN
+581177 [Thread-15] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1620258575704, current=DOWN, previous=UP]
+581177 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:4d35eb79cb87a645e44afbd69ba6e954: registering service...
+581197 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:4d35eb79cb87a645e44afbd69ba6e954 - registration status: 204
+581212 [Thread-15] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+581216 [Thread-15] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+581217 [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+581233 [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+581234 [Thread-15] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+584237 [Thread-15] INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+584244 [Thread-15] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:4d35eb79cb87a645e44afbd69ba6e954 - deregister  status: 200
+584254 [Thread-15] INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+587562 [restartedMain] INFO  b.c.i.f.debito.DebitApplication - The following profiles are active: test
+588119 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+588153 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 33ms. Found 7 JPA repository interfaces.
+588250 [restartedMain] INFO  o.s.c.context.scope.GenericScope - BeanFactory id=659a89da-5eba-332b-89f6-228e4596a619
+588353 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 0 (http)
+588354 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+588354 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+588456 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+588456 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 886 ms
+588487 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+588530 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+588530 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/banco_generic'
+588599 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+588611 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+588886 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+588886 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+588911 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+589120 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+589209 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+589219 [restartedMain] WARN  c.n.c.s.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+589219 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+589272 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+590587 [restartedMain] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+590610 [restartedMain] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses Jersey
+591722 [restartedMain] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+591744 [restartedMain] WARN  o.s.c.l.c.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+591805 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 60850 (http) with context path ''
+591806 [restartedMain] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 60850
+591808 [restartedMain] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+591812 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+591815 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+591815 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+591815 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+591816 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+592059 [restartedMain] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+592060 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+592060 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+592060 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+592060 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+592060 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+592060 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+592060 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+592068 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+592069 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+592070 [restartedMain] INFO  c.n.d.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+592071 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1620258586598 with initial instances count: 4
+592074 [restartedMain] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application DEBITO with eureka with status UP
+592074 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1620258586601, current=UP, previous=STARTING]
+592075 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:f3ea380fc0651c90c5c4d9baf4d01054: registering service...
+592092 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:f3ea380fc0651c90c5c4d9baf4d01054 - registration status: 204
+593180 [restartedMain] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+593180 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+593181 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+593186 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+593211 [restartedMain] INFO  b.c.i.f.debito.DebitApplication - Started DebitApplication in 8.871 seconds (JVM running for 594.091)
+593212 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+655141 [http-nio-auto-3-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+655141 [http-nio-auto-3-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+655144 [http-nio-auto-3-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+722238 [Thread-27] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application DEBITO with eureka with status DOWN
+722239 [Thread-27] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1620258716766, current=DOWN, previous=UP]
+722239 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:f3ea380fc0651c90c5c4d9baf4d01054: registering service...
+722260 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:f3ea380fc0651c90c5c4d9baf4d01054 - registration status: 204
+728577 [Thread-27] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+728581 [Thread-27] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+728582 [Thread-27] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+728598 [Thread-27] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+728598 [Thread-27] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+731601 [Thread-27] INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+731608 [Thread-27] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:f3ea380fc0651c90c5c4d9baf4d01054 - deregister  status: 200
+731621 [Thread-27] INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+734978 [restartedMain] INFO  b.c.i.f.debito.DebitApplication - The following profiles are active: test
+735507 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+735542 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34ms. Found 7 JPA repository interfaces.
+735669 [restartedMain] INFO  o.s.c.context.scope.GenericScope - BeanFactory id=659a89da-5eba-332b-89f6-228e4596a619
+735779 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 0 (http)
+735780 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+735780 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+735869 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+735869 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 886 ms
+735892 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+735938 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+735938 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/banco_generic'
+736006 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+736018 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+736225 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+736225 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+736245 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+736463 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+736517 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+736529 [restartedMain] WARN  c.n.c.s.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+736529 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+736575 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+737852 [restartedMain] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+737873 [restartedMain] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses Jersey
+738982 [restartedMain] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+739005 [restartedMain] WARN  o.s.c.l.c.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+739081 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 61020 (http) with context path ''
+739082 [restartedMain] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 61020
+739083 [restartedMain] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+739088 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+739091 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+739091 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+739092 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+739092 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+739314 [restartedMain] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+739316 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+739316 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+739316 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+739316 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+739316 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+739316 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+739316 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+739328 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+739329 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+739329 [restartedMain] INFO  c.n.d.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+739330 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1620258733857 with initial instances count: 4
+739332 [restartedMain] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application DEBITO with eureka with status UP
+739332 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1620258733859, current=UP, previous=STARTING]
+739333 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:3463fe537afbd762ee0adc8cd973ff5d: registering service...
+739351 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:3463fe537afbd762ee0adc8cd973ff5d - registration status: 204
+740436 [restartedMain] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+740437 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+740438 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+740443 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+740465 [restartedMain] INFO  b.c.i.f.debito.DebitApplication - Started DebitApplication in 8.732 seconds (JVM running for 741.345)
+740467 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+811890 [Thread-39] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application DEBITO with eureka with status DOWN
+811891 [Thread-39] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1620258806418, current=DOWN, previous=UP]
+811891 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:3463fe537afbd762ee0adc8cd973ff5d: registering service...
+811910 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:3463fe537afbd762ee0adc8cd973ff5d - registration status: 204
+811916 [Thread-39] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+811918 [Thread-39] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+811919 [Thread-39] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+811936 [Thread-39] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+811936 [Thread-39] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2848 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+4722 [restartedMain] INFO  b.c.i.f.debito.DebitApplication - The following profiles are active: test
+5809 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+6035 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 216ms. Found 7 JPA repository interfaces.
+6374 [restartedMain] INFO  o.s.c.context.scope.GenericScope - BeanFactory id=659a89da-5eba-332b-89f6-228e4596a619
+7111 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 0 (http)
+7125 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+7126 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+7340 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+7340 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2599 ms
+7401 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+7786 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+7794 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/banco_generic'
+7983 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+8056 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.28.Final
+8262 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+8463 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+9718 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+9729 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+9776 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+10647 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10827 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+10858 [restartedMain] WARN  c.n.c.s.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+10859 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+10866 [restartedMain] WARN  c.n.c.s.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+10866 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+11025 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+12558 [restartedMain] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+12594 [restartedMain] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses Jersey
+13724 [restartedMain] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+13754 [restartedMain] WARN  o.s.c.l.c.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+13935 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 61155 (http) with context path ''
+13937 [restartedMain] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 61155
+13945 [restartedMain] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+14009 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+14119 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+14119 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+14301 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+14301 [restartedMain] INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+14683 [restartedMain] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+14720 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+14721 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+14721 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+14721 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+14722 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+14722 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+14722 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+14969 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+14972 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+14975 [restartedMain] INFO  c.n.d.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+14980 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1620258834264 with initial instances count: 4
+14983 [restartedMain] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application DEBITO with eureka with status UP
+14984 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1620258834270, current=UP, previous=STARTING]
+14986 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:da30dc8320780ed8fcfadeb4d79e3fcc: registering service...
+15028 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DEBITO/debito:da30dc8320780ed8fcfadeb4d79e3fcc - registration status: 204
+16095 [restartedMain] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+16096 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+16151 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+16198 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+16371 [restartedMain] INFO  b.c.i.f.debito.DebitApplication - Started DebitApplication in 15.478 seconds (JVM running for 17.62)

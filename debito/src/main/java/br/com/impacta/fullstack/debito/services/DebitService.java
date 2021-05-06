@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import br.com.impacta.fullstack.debito.domain.Conta;
 import br.com.impacta.fullstack.debito.domain.Extrato;
 import br.com.impacta.fullstack.debito.dto.DebitDTO;
+import br.com.impacta.fullstack.debito.enums.TipoOperacao;
 import br.com.impacta.fullstack.debito.exceptions.ObjectNotFoundException;
 import br.com.impacta.fullstack.debito.repository.ContaRepository;
 import br.com.impacta.fullstack.debito.repository.ExtratoRepository;
@@ -39,6 +40,9 @@ public class DebitService {
 
 	private void createExtrato(Conta cc, DebitDTO obj) {
 		cc.withDraw(obj.getDebitValue());
+		
+		Extrato ext = repoExt.save(new Extrato(TipoOperacao.DEBITO, obj.getDebitValue()));
+		cc.setExtrato(ext);
 	}
 
 

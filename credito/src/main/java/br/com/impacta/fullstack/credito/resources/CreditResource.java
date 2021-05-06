@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.impacta.fullstack.credito.domain.Cartao;
 import br.com.impacta.fullstack.credito.domain.Conta;
 import br.com.impacta.fullstack.credito.domain.Extrato;
 import br.com.impacta.fullstack.credito.dto.CreditDTO;
@@ -55,6 +56,17 @@ public class CreditResource {
 		return ResponseEntity.noContent().build();
 	}
 	
+	@ApiOperation(value = "Update an object")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success"),
+			@ApiResponse(code = 401, message = "You do not have permission to access this resource ((Unauthorized))"),
+			@ApiResponse(code = 403, message = "You do not have permission to access this resource"),
+			@ApiResponse(code = 500, message = "an exception was thrown"), })
+	@RequestMapping(value = "/cartao", method = RequestMethod.POST)
+	public ResponseEntity<Void> insertCreditCard(@Valid @RequestBody CreditDTO objDto) {
+		Cartao cartao = service.insertCreditCard(objDto);
+		return ResponseEntity.noContent().build();
+	}
+	
 	@ApiOperation(value = "Returns an Extrato object")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success"),
 			@ApiResponse(code = 401, message = "You do not have permission to access this resource ((Unauthorized))"),
@@ -65,15 +77,4 @@ public class CreditResource {
 		List<Extrato> obj = service.findExtratoById(id);
 		return ResponseEntity.ok().body(obj);
 	}
-	
-//	@ApiOperation(value = "Returns an Account object")
-//	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success"),
-//			@ApiResponse(code = 401, message = "You do not have permission to access this resource ((Unauthorized))"),
-//			@ApiResponse(code = 403, message = "You do not have permission to access this resource"),
-//			@ApiResponse(code = 500, message = "an exception was thrown"), })
-//	@RequestMapping(value = "/all/{id}", method = RequestMethod.GET)
-//	public ResponseEntity<List<Credit>> findAllCreditById(@PathVariable Long id) {
-//		List<Credit> obj = service.findAllCreditById(id);
-//		return ResponseEntity.ok().body(obj);
-//	}
 }

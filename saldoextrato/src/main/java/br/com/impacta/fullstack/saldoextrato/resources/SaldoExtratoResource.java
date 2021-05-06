@@ -22,7 +22,7 @@ public class SaldoExtratoResource {
 	@Autowired
 	private SaldoExtratoService service;
 
-	@HystrixCommand(fallbackMethod = "getDebitoAlternative")
+//	@HystrixCommand(fallbackMethod = "getDebitoAlternative")
 	@PostMapping
 	public ResponseEntity<Void> insert(@Valid @RequestBody DebitDTO objDto) {
 		service.insert(objDto);

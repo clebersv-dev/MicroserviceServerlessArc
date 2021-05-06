@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.impacta.fullstack.conta.domain.Cartao;
+import br.com.impacta.fullstack.conta.domain.Fatura;
 import br.com.impacta.fullstack.conta.dto.CartaoDTO;
 import br.com.impacta.fullstack.conta.dto.CartaoSaldoDTO;
 import br.com.impacta.fullstack.conta.dto.CartaoUpdateDTO;
@@ -57,6 +58,8 @@ public class CartaoResource {
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Valid @RequestBody CartaoDTO objDto) {
 		Cartao fromDTO = service.fromDTO(objDto);
+		Fatura fat = service.insert(new Fatura());
+		fromDTO.addFatura(fat);
 		Cartao obj = service.insert(fromDTO);
 		obj.setSaldo(BigDecimal.ZERO);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();

@@ -1,7 +1,7 @@
 package br.com.impacta.fullstack.credito.domain;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -18,6 +18,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import br.com.impacta.fullstack.credito.enums.TipoCartao;
+import br.com.impacta.fullstack.credito.exceptions.SaldoInsuficiente;
 
 @Entity(name = "TB_CARTAO")
 public class Cartao {
@@ -38,7 +39,6 @@ public class Cartao {
 
 	@Column(name = "TB_SALDO")
 	private BigDecimal saldo;
-	
 	@Column(name = "TB_LIMITE")
 	private BigDecimal limite;
 
@@ -55,8 +55,46 @@ public class Cartao {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "TB_VALIDADE")
-	private Date validade;
+	private Calendar validade;
+
+	public Cartao() {
+	}
+
+	public Cartao(String titular, String numero, String bandeira,  BigDecimal limite, TipoCartao tipo,
+			Cliente cliente) {
+		this.titular = titular;
+		this.numero = numero;
+		this.bandeira = bandeira;
+		this.limite = limite;
+		this.tipo = tipo;
+		this.cliente = cliente;
+		Calendar validadeTemp = Calendar.getInstance();
+		validadeTemp.add(Calendar.YEAR, 5);
+		this.validade = validadeTemp;
+	}
 	
+    public BigDecimal withDraw(BigDecimal limiteTotal, BigDecimal credito) {
+        validateValue(credito);
+
+        BigDecimal ret = limiteTotal.subtract(credito);
+        if (ret.compareTo(BigDecimal.ZERO) < 0) {
+            throw new SaldoInsuficiente("no balance available");
+        }
+        return ret;
+    }
+
+    public void deposit(BigDecimal value) {
+        validateValue(value);
+
+        this.setSaldo(this.saldo.add(value));
+    }
+    
+    private void validateValue(BigDecimal value) {
+        if(value.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("value should be greater than zero");
+        }
+    }
+
 	public String getTitular() {
 		return titular;
 	}
@@ -82,7 +120,7 @@ public class Cartao {
 	}
 
 	public BigDecimal getSaldo() {
-		return saldo;
+		return this.limite.subtract(this.saldo == null ? BigDecimal.ZERO : this.saldo); 
 	}
 
 	public void setSaldo(BigDecimal saldo) {
@@ -105,16 +143,12 @@ public class Cartao {
 		this.cliente = cliente;
 	}
 
-	public Date getValidade() {
+	public Calendar getValidade() {
 		return validade;
 	}
 
-	public void setValidade(Date validade) {
+	public void setValidade(Calendar validade) {
 		this.validade = validade;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public Long getId() {
@@ -136,4 +170,9 @@ public class Cartao {
 	public void setTipo(TipoCartao tipo) {
 		this.tipo = tipo;
 	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 }

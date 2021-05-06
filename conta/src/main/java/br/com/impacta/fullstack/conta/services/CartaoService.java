@@ -13,11 +13,13 @@ import org.springframework.stereotype.Service;
 
 import br.com.impacta.fullstack.conta.domain.Cartao;
 import br.com.impacta.fullstack.conta.domain.Cliente;
+import br.com.impacta.fullstack.conta.domain.Fatura;
 import br.com.impacta.fullstack.conta.dto.CartaoDTO;
 import br.com.impacta.fullstack.conta.exceptions.DataIntegrityException;
 import br.com.impacta.fullstack.conta.exceptions.ObjectNotFoundException;
 import br.com.impacta.fullstack.conta.repository.CartaoRepository;
 import br.com.impacta.fullstack.conta.repository.ClienteRepository;
+import br.com.impacta.fullstack.conta.repository.FaturaRepository;
 
 @Service
 public class CartaoService {
@@ -27,6 +29,9 @@ public class CartaoService {
 	
 	@Autowired
 	private ClienteRepository repositoryCliente;
+	
+	@Autowired
+	private FaturaRepository repositoryFatura;
 
 	public Cartao find(Long id) {
 		Optional<Cartao> obj = repository.findById(id);
@@ -36,6 +41,10 @@ public class CartaoService {
 
 	public Cartao insert(Cartao obj) {
 		return repository.save(obj);
+	}
+	
+	public Fatura insert(Fatura obj) {
+		return repositoryFatura.save(obj);
 	}
 
 	public Cartao update(Cartao obj) {

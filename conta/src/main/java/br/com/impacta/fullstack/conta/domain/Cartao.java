@@ -1,6 +1,7 @@
 package br.com.impacta.fullstack.conta.domain;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class Cartao {
 	private Cliente cliente;
 
 	@OneToMany
-	private List<Fatura> fatura;
+	private List<Fatura> fatura = new ArrayList<>();
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "TB_VALIDADE")
@@ -67,6 +68,7 @@ public class Cartao {
 		this.limite = limite;
 		this.tipo = tipo;
 		this.cliente = cliente;
+		this.fatura.add(new Fatura());
 		Calendar validadeTemp = Calendar.getInstance();
 		validadeTemp.add(Calendar.YEAR, 5);
 		this.validade = validadeTemp;
@@ -138,6 +140,11 @@ public class Cartao {
 
 	public void setFatura(List<Fatura> fatura) {
 		this.fatura = fatura;
+	}
+	
+	public void addFatura(Fatura fatura) {
+		this.fatura.clear();
+		this.fatura.add(fatura);
 	}
 
 	public TipoCartao getTipo() {

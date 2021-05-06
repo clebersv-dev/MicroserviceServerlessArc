@@ -31,6 +31,18 @@ public class Fatura {
 	@Column(name = "TB_DATA_TRANSACAO")
 	private Calendar dataTransacao;
 
+	public Fatura() {
+		super();
+	}
+	
+	public Fatura(BigDecimal limiteTotal, BigDecimal limiteUtilizado, BigDecimal disponivel) {
+		super();
+		this.limiteTotal = limiteTotal;
+		this.limiteUtilizado = limiteUtilizado;
+		this.disponivel = disponivel;
+		this.dataTransacao = Calendar.getInstance();
+	}
+	
 	public BigDecimal getLimiteTotal() {
 		return limiteTotal;
 	}
@@ -38,10 +50,14 @@ public class Fatura {
 		this.limiteTotal = limiteTotal;
 	}
 	public BigDecimal getLimiteUtilizado() {
-		return limiteUtilizado;
+		return limiteUtilizado == null ? BigDecimal.ZERO : this.limiteUtilizado;
 	}
 	public void setLimiteUtilizado(BigDecimal limiteUtilizado) {
-		this.limiteUtilizado = limiteUtilizado;
+		if(this.limiteUtilizado != null) {
+			this.limiteUtilizado = this.limiteUtilizado.add(limiteUtilizado);
+		} else {
+			this.limiteUtilizado = limiteUtilizado;
+		}
 	}
 	public BigDecimal getDisponivel() {
 		return disponivel;
@@ -55,6 +71,4 @@ public class Fatura {
 	public void setDataTransacao(Calendar dataTransacao) {
 		this.dataTransacao = dataTransacao;
 	}
-	
-
 }

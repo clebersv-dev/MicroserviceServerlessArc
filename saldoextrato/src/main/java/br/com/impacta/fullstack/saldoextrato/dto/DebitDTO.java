@@ -1,9 +1,8 @@
 package br.com.impacta.fullstack.saldoextrato.dto;
 
+
 import java.io.Serializable;
 import java.math.BigDecimal;
-
-
 
 public class DebitDTO implements Serializable {
 	private static final long serialVersionUID = 1L;

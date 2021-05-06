@@ -50,7 +50,7 @@ public class DebitResource {
 			@ApiResponse(code = 500, message = "an exception was thrown"), })
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Valid @RequestBody DebitDTO objDto) {
-		Conta cc = service.insert(objDto);
+		service.insert(objDto);
 		return ResponseEntity.noContent().build();
 	}
 	

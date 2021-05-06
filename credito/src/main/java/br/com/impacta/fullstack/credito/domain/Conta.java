@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import br.com.impacta.fullstack.credito.exceptions.SaldoInsuficiente;
+import br.com.impacta.fullstack.credito.exceptions.ValorDeveSerMaiorQueZero;
+
 @Entity(name = "TB_CONTA")
 public class Conta {
 
@@ -70,7 +73,7 @@ public class Conta {
 
         BigDecimal ret = this.saldo.subtract(value);
         if (ret.compareTo(BigDecimal.ZERO) < 0) {
-            throw new IllegalArgumentException("no balance available");
+            throw new SaldoInsuficiente("no balance available");
         }
         this.saldo.subtract(value);
     }
@@ -83,7 +86,7 @@ public class Conta {
     
     private void validateValue(BigDecimal value) {
         if(value.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new IllegalArgumentException("value should be greater than zero");
+            throw new ValorDeveSerMaiorQueZero("value should be greater than zero");
         }
     }
 

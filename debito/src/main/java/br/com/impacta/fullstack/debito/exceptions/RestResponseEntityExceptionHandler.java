@@ -16,6 +16,18 @@ public class RestResponseEntityExceptionHandler {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
 	}
 	
+	@ExceptionHandler(SaldoInsuficiente.class)
+	public ResponseEntity<DefaultError> saldoInsuficiente(SaldoInsuficiente e, HttpServletRequest request) {
+		DefaultError error = new DefaultError(HttpStatus.BAD_REQUEST.value(), e.getMessage(), System.currentTimeMillis());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+	}
+	
+	@ExceptionHandler(ValorDeveSerMaiorQueZero.class)
+	public ResponseEntity<DefaultError> valorDeveSerMaiorQueZero(ValorDeveSerMaiorQueZero e, HttpServletRequest request) {
+		DefaultError error = new DefaultError(HttpStatus.BAD_REQUEST.value(), e.getMessage(), System.currentTimeMillis());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+	}
+	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<DefaultError> validation(MethodArgumentNotValidException e, HttpServletRequest request) {
 		

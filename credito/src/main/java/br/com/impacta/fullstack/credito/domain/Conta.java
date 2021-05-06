@@ -1,6 +1,8 @@
 package br.com.impacta.fullstack.credito.domain;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import br.com.impacta.fullstack.credito.exceptions.SaldoInsuficiente;
@@ -33,8 +36,8 @@ public class Conta {
 	@Column(name = "TB_LIMITE")
 	private BigDecimal limite;
 
-	@OneToOne
-	private Extrato extrato;
+	@OneToMany
+	private List<Extrato> extrato = new ArrayList<>();
 	
 	@OneToOne
 	@JoinColumn(unique = true)
@@ -72,10 +75,11 @@ public class Conta {
         validateValue(value);
 
         BigDecimal ret = this.saldo.subtract(value);
+
         if (ret.compareTo(BigDecimal.ZERO) < 0) {
             throw new SaldoInsuficiente("no balance available");
         }
-        this.saldo.subtract(value);
+        this.setSaldo(saldo.subtract(value));
     }
 
     public void deposit(BigDecimal value) {
@@ -157,12 +161,12 @@ public class Conta {
 		this.cliente = cliente;
 	}
 	
-	public Extrato getExtrato() {
+	public List<Extrato> getExtrato() {
 		return extrato;
 	}
 
 	public void setExtrato(Extrato extrato) {
-		this.extrato = extrato;
+		this.extrato.add(extrato);
 	}
 
 	@Override

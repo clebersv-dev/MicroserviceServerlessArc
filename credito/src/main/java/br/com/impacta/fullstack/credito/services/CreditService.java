@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import br.com.impacta.fullstack.credito.domain.Conta;
 import br.com.impacta.fullstack.credito.domain.Extrato;
 import br.com.impacta.fullstack.credito.dto.CreditDTO;
+import br.com.impacta.fullstack.credito.enums.TipoOperacao;
 import br.com.impacta.fullstack.credito.exceptions.ObjectNotFoundException;
 import br.com.impacta.fullstack.credito.repository.ContaRepository;
 import br.com.impacta.fullstack.credito.repository.ExtratoRepository;
@@ -45,6 +46,9 @@ public class CreditService {
 
 	private void createExtrato(Conta cc, CreditDTO obj) {
 		cc.deposit(obj.getCreditValue());
+		
+		Extrato ext = repoExt.save(new Extrato(TipoOperacao.CREDITO, obj.getCreditValue()));
+		cc.setExtrato(ext);
 	}
 
 

@@ -57,8 +57,6 @@ public class Cartao {
 	@Column(name = "TB_VALIDADE")
 	private Calendar validade;
 	
-	private String novo;
-
 	public String getTitular() {
 		return titular;
 	}
@@ -134,13 +132,4 @@ public class Cartao {
 	public void setTipo(TipoCartao tipo) {
 		this.tipo = tipo;
 	}
-
-	public String getNovo() {
-		return novo;
-	}
-
-	public void setNovo(String novo) {
-		this.novo = novo;
-	}
-
 }

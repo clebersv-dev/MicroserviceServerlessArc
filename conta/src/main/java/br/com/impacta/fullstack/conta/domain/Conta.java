@@ -1,6 +1,8 @@
 package br.com.impacta.fullstack.conta.domain;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity(name = "TB_CONTA")
@@ -30,6 +33,9 @@ public class Conta {
 	@Column(name = "TB_LIMITE")
 	private BigDecimal limite;
 
+	@OneToMany
+	private List<Extrato> extrato = new ArrayList<>();
+	
 	@OneToOne
 	@JoinColumn(unique = true)
 	private Cliente cliente;
@@ -61,6 +67,28 @@ public class Conta {
 		this.saldo = saldo;
 		this.limite = limite;
 	}
+	
+    public void withDraw(BigDecimal value) {
+        validateValue(value);
+
+        BigDecimal ret = this.saldo.subtract(value);
+        if (ret.compareTo(this.limite) <= -1) {
+            throw new IllegalArgumentException("no balance available");
+        }
+        this.setSaldo(saldo.subtract(value));
+    }
+
+    public void deposit(BigDecimal value) {
+        validateValue(value);
+
+        this.setSaldo(this.saldo.add(value));
+    }
+    
+    private void validateValue(BigDecimal value) {
+        if(value.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("value should be greater than zero");
+        }
+    }
 
 	public Long getId() {
 		return id;
@@ -121,12 +149,20 @@ public class Conta {
 	public Cliente getCliente() {
 		return cliente;
 	}
-
+	
 	public void setCliente(Cliente cliente) {
 		if (cliente != null)
 			this.titular = cliente.getNome();
 
 		this.cliente = cliente;
+	}
+	
+	public List<Extrato> getExtrato() {
+		return extrato;
+	}
+
+	public void setExtrato(Extrato extrato) {
+		this.extrato.add(extrato);
 	}
 
 	@Override
@@ -189,5 +225,4 @@ public class Conta {
 			return false;
 		return true;
 	}
-
 }

@@ -1,5 +1,5 @@
 package br.com.impacta.fullstack.debito.enums;
 
-public enum Operacao {
+public enum TipoOperacao {
 	DEBITO, CREDITO
 }

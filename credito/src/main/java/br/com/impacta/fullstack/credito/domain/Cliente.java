@@ -2,7 +2,7 @@ package br.com.impacta.fullstack.credito.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -17,6 +17,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.com.impacta.fullstack.credito.enums.TipoCliente;
 
 @Entity(name = "TB_CLIENTE")
@@ -28,8 +30,9 @@ public class Cliente implements Serializable {
 	@Column(name = "TB_ID")
 	private Long id;
 	
-    @OneToMany(mappedBy="cliente")
-    private List<Conta> conta = new ArrayList<>();
+	@OneToMany(mappedBy = "cliente")
+	@JsonIgnore
+	private List<Conta> conta = new ArrayList<>();
 
 	@Column(name = "TB_NOME", columnDefinition = "varchar(140)", nullable = false)
 	private String nome;
@@ -47,16 +50,34 @@ public class Cliente implements Serializable {
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "TB_DATA_CADASTRO")
-	private Calendar dataCadastro;
+	private Date dataCadastro;
 
 	public Cliente() {}
 	
-	public Cliente(String nome, String cpfCnpj, Calendar dataCadastro, Endereco endereco, Conta conta, TipoCliente tipo) {
+	public Cliente(String nome, String cpfCnpj, Endereco endereco, TipoCliente tipo) {
+		this.nome = nome;
+		this.cpfCnpj = cpfCnpj;
+		this.endereco = endereco;
+		this.dataCadastro = new Date();
+		this.tipo = tipo;
+	}
+
+	public Cliente(Long id, String nome, String cpfCnpj, Endereco endereco, TipoCliente tipo) {
+		this.id = id;
+		this.nome = nome;
+		this.cpfCnpj = cpfCnpj;
+		this.endereco = endereco;
+		this.dataCadastro = new Date();
+		this.tipo = tipo;
+	}
+
+	public Cliente(Long id, String nome, String cpfCnpj, Endereco endereco, Conta conta, TipoCliente tipo) {
+		this.id = id;
 		this.nome = nome;
 		this.cpfCnpj = cpfCnpj;
 		this.conta.add(conta);
 		this.endereco = endereco;
-		this.dataCadastro = dataCadastro;
+		this.dataCadastro = new Date();
 		this.tipo = tipo;
 	}
 
@@ -156,11 +177,11 @@ public class Cliente implements Serializable {
 		this.tipo = tipo;
 	}
 
-	public Calendar getDataCadastro() {
+	public Date getDataCadastro() {
 		return dataCadastro;
 	}
 
-	public void setDataCadastro(Calendar dataCadastro) {
+	public void setDataCadastro(Date dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
 

@@ -1,6 +1,8 @@
 package br.com.impacta.fullstack.debito.domain;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import br.com.impacta.fullstack.debito.exceptions.SaldoInsuficiente;
@@ -33,29 +36,28 @@ public class Conta {
 	@Column(name = "TB_LIMITE")
 	private BigDecimal limite;
 
-	@OneToOne
-	private Extrato extrato;
-	
+	@OneToMany
+	private List<Extrato> extrato = new ArrayList<>();
+
 	@OneToOne
 	@JoinColumn(unique = true)
 	private Cliente cliente;
-	
+
 	public Conta() {
 		this.saldo = BigDecimal.ZERO;
 		this.limite = BigDecimal.ZERO;
 	}
-	
-	public Conta(String titular, String banco, String agencia, String numero, BigDecimal saldo,
-			BigDecimal limite) {
+
+	public Conta(String titular, String banco, String agencia, String numero, BigDecimal saldo, BigDecimal limite) {
 		super();
 		this.titular = titular;
 		this.banco = banco;
 		this.agencia = agencia;
 		this.numero = numero;
 		this.saldo = saldo == null ? BigDecimal.ZERO : saldo;
-		this.limite = limite == null ? BigDecimal.ZERO: limite;
+		this.limite = limite == null ? BigDecimal.ZERO : limite;
 	}
-	
+
 	public Conta(Long id, String titular, String banco, String agencia, String numero, BigDecimal saldo,
 			BigDecimal limite) {
 		super();
@@ -67,28 +69,28 @@ public class Conta {
 		this.saldo = saldo;
 		this.limite = limite;
 	}
-	
-    public void withDraw(BigDecimal value) {
-        validateValue(value);
 
-        BigDecimal ret = this.saldo.subtract(value);
-        if (limite.compareTo(ret) == 1) {
-            throw new SaldoInsuficiente("no balance available");
-        }
-        this.setSaldo(this.saldo.subtract(value));
-    }
+	public void withDraw(BigDecimal value) {
+		validateValue(value);
 
-    public void deposit(BigDecimal value) {
-        validateValue(value);
+		BigDecimal ret = this.saldo.subtract(value);
+		if (ret.compareTo(this.limite) <= -1) {
+			throw new SaldoInsuficiente("no balance available");
+		}
+		this.setSaldo(saldo.subtract(value));
+	}
 
-        this.setSaldo(this.saldo.add(value));
-    }
-    
-    private void validateValue(BigDecimal value) {
-        if(value.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new ValorDeveSerMaiorQueZero("value should be greater than zero");
-        }
-    }
+	public void deposit(BigDecimal value) {
+		validateValue(value);
+
+		this.setSaldo(this.saldo.add(value));
+	}
+
+	private void validateValue(BigDecimal value) {
+		if (value.compareTo(BigDecimal.ZERO) <= 0) {
+			throw new ValorDeveSerMaiorQueZero("value should be greater than zero");
+		}
+	}
 
 	public Long getId() {
 		return id;
@@ -149,20 +151,20 @@ public class Conta {
 	public Cliente getCliente() {
 		return cliente;
 	}
-	
+
 	public void setCliente(Cliente cliente) {
 		if (cliente != null)
 			this.titular = cliente.getNome();
 
 		this.cliente = cliente;
 	}
-	
-	public Extrato getExtrato() {
+
+	public List<Extrato> getExtrato() {
 		return extrato;
 	}
 
 	public void setExtrato(Extrato extrato) {
-		this.extrato = extrato;
+		this.extrato.add(extrato);
 	}
 
 	@Override

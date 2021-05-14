@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9040f4ee-9a46-47b0-a5d9-cf174fbf7d1a",
+		"_postman_id": "8c147cd6-b124-4408-8e2e-48aa2e4fb923",
 		"name": "Projeto Final MS Serv",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -179,6 +179,117 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "creditar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"creditValue\": 2000,\r\n  \"id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-gateway}}/credito/credit/v1",
+							"host": [
+								"{{api-gateway}}"
+							],
+							"path": [
+								"credito",
+								"credit",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "debito",
+			"item": [
+				{
+					"name": "/debito/debit/v1/hello",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-gateway}}/debito/debit/v1/hello",
+							"host": [
+								"{{api-gateway}}"
+							],
+							"path": [
+								"debito",
+								"debit",
+								"v1",
+								"hello"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "debitar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"debitValue\": 1000,\r\n  \"id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-gateway}}/debito/debit/v1",
+							"host": [
+								"{{api-gateway}}"
+							],
+							"path": [
+								"debito",
+								"debit",
+								"v1"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -238,6 +349,92 @@
 								"saldoextrato",
 								"saldoextrato",
 								"debito"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "conta",
+			"item": [
+				{
+					"name": "incluir conta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"agencia\": \"123\",\r\n  \"banco\": \"222\",\r\n  \"limite\": 1000,\r\n  \"numero\": \"123456\",\r\n  \"tipoConta\": \"CORRENTE\",\r\n  \"cliente\": {\r\n    \"nome\": \"Cleber Conta Corrente\",\r\n    \"cpfCnpj\": \"41254598457\",\r\n    \"tipo\": \"FISICO\",\r\n    \"endereco\": {\r\n      \"bairro\": \"Vila A\",\r\n      \"cep\": \"09360660\",\r\n      \"complemento\": \"\",\r\n      \"ddd\": \"11\",\r\n      \"gia\": \"S\",\r\n      \"ibge\": \"S11\",\r\n      \"localidade\": \"Mauá\",\r\n      \"logradouro\": \"Rua\",\r\n      \"siafi\": \"siafi\",\r\n      \"uf\": \"SP\"\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-gateway}}/conta/conta/v1",
+							"host": [
+								"{{api-gateway}}"
+							],
+							"path": [
+								"conta",
+								"conta",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "hello",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-gateway}}/conta/conta/v1/hello",
+							"host": [
+								"{{api-gateway}}"
+							],
+							"path": [
+								"conta",
+								"conta",
+								"v1",
+								"hello"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "investimento",
+			"item": [
+				{
+					"name": "investir",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idCliente\": 1,\r\n  \"quantidade\": 10,\r\n  \"tipo\": \"TESOURO_PREFIXADO_2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-gateway}}/conta/investimento/v1",
+							"host": [
+								"{{api-gateway}}"
+							],
+							"path": [
+								"conta",
+								"investimento",
+								"v1"
 							]
 						}
 					},

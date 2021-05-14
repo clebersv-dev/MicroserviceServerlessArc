@@ -25,12 +25,29 @@ public class Investimento {
 
 	@Enumerated(EnumType.STRING)
 	private TipoInvestimentos tipo;
+	@Column(name = "TB_VALOR_UNITARIO")
+	private BigDecimal valorUnitario;
+	@Column(name = "TB_QUANTIDADE")
+	private Integer unidade;
 	@Column(name = "TB_SALDO")
 	private BigDecimal saldo;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataCompra;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataRegaste;
+	
+	public Investimento() {
+		super();
+	}
+	
+	public Investimento(TipoInvestimentos tipo, BigDecimal valorUnitario, Integer unidade, BigDecimal saldo, Cliente cliente) {
+		super();
+		this.tipo = tipo;
+		this.valorUnitario = valorUnitario;
+		this.unidade = unidade;
+		this.saldo = saldo;
+		this.dataCompra = Calendar.getInstance();
+	}
 
 	public TipoInvestimentos getTipo() {
 		return tipo;
@@ -68,4 +85,19 @@ public class Investimento {
 		return id;
 	}
 
+	public BigDecimal getValorUnitario() {
+		return valorUnitario;
+	}
+
+	public void setValorUnitario(BigDecimal valorUnitario) {
+		this.valorUnitario = valorUnitario;
+	}
+
+	public Integer getUnidade() {
+		return unidade;
+	}
+
+	public void setUnidade(Integer unidade) {
+		this.unidade = unidade;
+	}
 }

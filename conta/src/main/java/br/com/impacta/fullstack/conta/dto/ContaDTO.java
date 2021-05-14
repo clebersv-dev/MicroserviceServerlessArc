@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import br.com.impacta.fullstack.conta.enums.TipoConta;
+
 public class ContaDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -18,13 +20,14 @@ public class ContaDTO implements Serializable {
 	private BigDecimal saldo;
 	private BigDecimal limite;
 	private ClienteDTO cliente;
-
+	private TipoConta tipoConta;
+	
 	public ContaDTO() {
 		super();
 	}
 
 	public ContaDTO(Long id, String titular, String banco, String agencia, String numero, BigDecimal saldo,
-			BigDecimal limite, ClienteDTO cliente) {
+			BigDecimal limite, ClienteDTO cliente, TipoConta tipoConta) {
 		super();
 		this.id = id;
 		this.titular = titular;
@@ -34,6 +37,7 @@ public class ContaDTO implements Serializable {
 		this.saldo = saldo;
 		this.limite = limite;
 		this.cliente = cliente;
+		this.tipoConta = tipoConta;
 	}
 
 	public Long getId() {
@@ -98,6 +102,14 @@ public class ContaDTO implements Serializable {
 
 	public void setCliente(ClienteDTO cliente) {
 		this.cliente = cliente;
+	}
+	
+	public TipoConta getTipoConta() {
+		return tipoConta;
+	}
+
+	public void setTipoConta(TipoConta tipoConta) {
+		this.tipoConta = tipoConta;
 	}
 
 	@Override
@@ -166,5 +178,4 @@ public class ContaDTO implements Serializable {
 			return false;
 		return true;
 	}
-	
 }

@@ -6,12 +6,17 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import br.com.impacta.fullstack.conta.enums.TipoSegmento;
+import br.com.impacta.fullstack.conta.exceptions.SaldoInsuficiente;
 
 @Entity(name = "TB_CONTA")
 public class Conta {
@@ -32,7 +37,13 @@ public class Conta {
 	private BigDecimal saldo;
 	@Column(name = "TB_LIMITE")
 	private BigDecimal limite;
-
+	@Column(name = "TB_SEGMENTO")
+	@Enumerated(EnumType.STRING)
+	private TipoSegmento segmento;
+	
+	@OneToMany
+	private List<Investimento> investimentos = new ArrayList<>();
+	
 	@OneToMany
 	private List<Extrato> extrato = new ArrayList<>();
 	
@@ -46,7 +57,7 @@ public class Conta {
 	}
 	
 	public Conta(String titular, String banco, String agencia, String numero, BigDecimal saldo,
-			BigDecimal limite) {
+			BigDecimal limite, Cliente cliente, TipoSegmento segmento) {
 		super();
 		this.titular = titular;
 		this.banco = banco;
@@ -54,6 +65,22 @@ public class Conta {
 		this.numero = numero;
 		this.saldo = saldo == null ? BigDecimal.ZERO : saldo;
 		this.limite = limite == null ? BigDecimal.ZERO: limite;
+		this.cliente = cliente;
+		this.segmento = segmento;
+	}
+	
+	public Conta(String titular, String banco, String agencia, String numero, BigDecimal saldo,
+			BigDecimal limite, Cliente cliente, TipoSegmento segmento, Investimento investimento) {
+		super();
+		this.titular = titular;
+		this.banco = banco;
+		this.agencia = agencia;
+		this.numero = numero;
+		this.saldo = saldo == null ? BigDecimal.ZERO : saldo;
+		this.limite = limite == null ? BigDecimal.ZERO: limite;
+		this.cliente = cliente;
+		this.segmento = segmento;
+		this.investimentos.add(investimento);
 	}
 	
 	public Conta(Long id, String titular, String banco, String agencia, String numero, BigDecimal saldo,
@@ -72,8 +99,8 @@ public class Conta {
         validateValue(value);
 
         BigDecimal ret = this.saldo.subtract(value);
-        if (ret.compareTo(this.limite) <= -1) {
-            throw new IllegalArgumentException("no balance available");
+        if (ret.compareTo(this.limite.negate()) <= -1) {
+            throw new SaldoInsuficiente("no balance available");
         }
         this.setSaldo(saldo.subtract(value));
     }
@@ -86,7 +113,7 @@ public class Conta {
     
     private void validateValue(BigDecimal value) {
         if(value.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new IllegalArgumentException("value should be greater than zero");
+            throw new SaldoInsuficiente("value should be greater than zero");
         }
     }
 
@@ -164,7 +191,23 @@ public class Conta {
 	public void setExtrato(Extrato extrato) {
 		this.extrato.add(extrato);
 	}
+	
+	public TipoSegmento getSegmento() {
+		return segmento;
+	}
 
+	public void setSegmento(TipoSegmento segmento) {
+		this.segmento = segmento;
+	}
+	
+	public List<Investimento> getInvestimentos() {
+		return investimentos;
+	}
+
+	public void setInvestimentos(Investimento investimento) {
+		this.investimentos.add(investimento);
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

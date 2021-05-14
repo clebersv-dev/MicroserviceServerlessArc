@@ -1,43 +1,33 @@
-package br.com.impacta.fullstack.saldoextrato.domain;
+package br.com.impacta.fullstack.conta.dto;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
-import br.com.impacta.fullstack.saldoextrato.exceptions.SaldoInsuficiente;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class Conta {
+import br.com.impacta.fullstack.conta.enums.TipoSegmento;
 
+public class ContaCcDTO implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@JsonIgnore
 	private Long id;
 	private String titular;
 	private String banco;
 	private String agencia;
 	private String numero;
+	@JsonIgnore
 	private BigDecimal saldo;
 	private BigDecimal limite;
+	private ClienteDTO cliente;
+	private TipoSegmento segmento;
 
-	private List<Extrato> extrato = new ArrayList<>();
-	
-	private Cliente cliente;
-	
-	public Conta() {
-		this.saldo = BigDecimal.ZERO;
-		this.limite = BigDecimal.ZERO;
-	}
-	
-	public Conta(String titular, String banco, String agencia, String numero, BigDecimal saldo,
-			BigDecimal limite) {
+	public ContaCcDTO() {
 		super();
-		this.titular = titular;
-		this.banco = banco;
-		this.agencia = agencia;
-		this.numero = numero;
-		this.saldo = saldo == null ? BigDecimal.ZERO : saldo;
-		this.limite = limite == null ? BigDecimal.ZERO: limite;
 	}
-	
-	public Conta(Long id, String titular, String banco, String agencia, String numero, BigDecimal saldo,
-			BigDecimal limite) {
+
+	public ContaCcDTO(Long id, String titular, String banco, String agencia, String numero, BigDecimal saldo,
+			BigDecimal limite, ClienteDTO cliente, TipoSegmento segmento) {
 		super();
 		this.id = id;
 		this.titular = titular;
@@ -46,29 +36,9 @@ public class Conta {
 		this.numero = numero;
 		this.saldo = saldo;
 		this.limite = limite;
+		this.cliente = cliente;
+		this.segmento = segmento;
 	}
-	
-    public void withDraw(BigDecimal value) {
-        validateValue(value);
-
-        BigDecimal ret = this.saldo.subtract(value);
-        if (ret.compareTo(this.limite.negate()) <= -1) {
-            throw new SaldoInsuficiente("no balance available");
-        }
-        this.setSaldo(saldo.subtract(value));
-    }
-
-    public void deposit(BigDecimal value) {
-        validateValue(value);
-
-        this.setSaldo(this.saldo.add(value));
-    }
-    
-    private void validateValue(BigDecimal value) {
-        if(value.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new SaldoInsuficiente("value should be greater than zero");
-        }
-    }
 
 	public Long getId() {
 		return id;
@@ -126,23 +96,20 @@ public class Conta {
 		this.limite = limite;
 	}
 
-	public Cliente getCliente() {
+	public ClienteDTO getCliente() {
 		return cliente;
 	}
-	
-	public void setCliente(Cliente cliente) {
-		if (cliente != null)
-			this.titular = cliente.getNome();
 
+	public void setCliente(ClienteDTO cliente) {
 		this.cliente = cliente;
 	}
 	
-	public List<Extrato> getExtrato() {
-		return extrato;
+	public TipoSegmento getSegmento() {
+		return segmento;
 	}
-
-	public void setExtrato(Extrato extrato) {
-		this.extrato.add(extrato);
+	
+	public void setSegmento(TipoSegmento segmento) {
+		this.segmento = segmento;
 	}
 
 	@Override
@@ -151,6 +118,7 @@ public class Conta {
 		int result = 1;
 		result = prime * result + ((agencia == null) ? 0 : agencia.hashCode());
 		result = prime * result + ((banco == null) ? 0 : banco.hashCode());
+		result = prime * result + ((cliente == null) ? 0 : cliente.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((limite == null) ? 0 : limite.hashCode());
 		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
@@ -167,7 +135,7 @@ public class Conta {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Conta other = (Conta) obj;
+		ContaCcDTO other = (ContaCcDTO) obj;
 		if (agencia == null) {
 			if (other.agencia != null)
 				return false;
@@ -177,6 +145,11 @@ public class Conta {
 			if (other.banco != null)
 				return false;
 		} else if (!banco.equals(other.banco))
+			return false;
+		if (cliente == null) {
+			if (other.cliente != null)
+				return false;
+		} else if (!cliente.equals(other.cliente))
 			return false;
 		if (id == null) {
 			if (other.id != null)

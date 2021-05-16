@@ -100,4 +100,5 @@ public class Investimento {
 	public void setUnidade(Integer unidade) {
 		this.unidade = unidade;
 	}
+
 }

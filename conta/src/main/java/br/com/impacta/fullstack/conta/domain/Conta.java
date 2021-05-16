@@ -203,6 +203,10 @@ public class Conta {
 	public List<Investimento> getInvestimentos() {
 		return investimentos;
 	}
+	
+	public void setInvestimentos(List<Investimento> investimentos) {
+		this.investimentos = investimentos;
+	}
 
 	public void setInvestimentos(Investimento investimento) {
 		this.investimentos.add(investimento);

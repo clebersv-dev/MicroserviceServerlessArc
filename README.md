@@ -5,7 +5,9 @@
 3 - executar comando: docker-compose up --build -d
 
 Eureka - http://localhost:8761
+
 Grafana - http://localhost:300
+
 Prometheus - http://localhost:9090
 
 user: admin

@@ -13,12 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 
 import br.com.impacta.fullstack.user.util.ObjetoUtil;
 
-@Entity
-@Table(name = "tb_user")
+@Entity(name = "TB_USER")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -38,9 +36,9 @@ public class User implements Serializable {
 	private String password;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "tb_user_role", 
-			joinColumns = @JoinColumn(name = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "role_id")
+	@JoinTable(name = "TB_USER_ROLE", 
+			joinColumns = @JoinColumn(name = "USER_ID"),
+			inverseJoinColumns = @JoinColumn(name = "ROLE_ID")
 	)
 	private Set<Role> roles = new HashSet<>();
 	

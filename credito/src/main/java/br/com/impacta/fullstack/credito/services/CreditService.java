@@ -20,7 +20,6 @@ import br.com.impacta.fullstack.credito.exceptions.SaldoInsuficiente;
 import br.com.impacta.fullstack.credito.repository.CartaoRepository;
 import br.com.impacta.fullstack.credito.repository.ContaRepository;
 import br.com.impacta.fullstack.credito.repository.ExtratoRepository;
-import br.com.impacta.fullstack.credito.repository.FaturaRepository;
 
 @Service
 public class CreditService {
@@ -34,9 +33,6 @@ public class CreditService {
 	@Autowired
 	private CartaoRepository repoCard;
 
-	@Autowired
-	private FaturaRepository repoFat;
-	
 	public List<Extrato> findExtratoById(Long id) {
 		Optional<List<Extrato>> obj = Optional.of(repoExt.findAllById(Arrays.asList(id)));
 		return obj.orElseThrow(() -> new ObjectNotFoundException(Extrato.class.getName()));

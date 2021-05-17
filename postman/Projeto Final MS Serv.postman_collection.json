@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8c147cd6-b124-4408-8e2e-48aa2e4fb923",
+		"_postman_id": "e46bd0b4-a703-47fc-b23e-5569e9142573",
 		"name": "Projeto Final MS Serv",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -184,14 +184,7 @@
 					"name": "creditar",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "POST",
 						"header": [],
@@ -297,7 +290,7 @@
 			"name": "saldoextrato",
 			"item": [
 				{
-					"name": "/saldoextrato/saldoextrato/credito",
+					"name": "/saldoextrato/credito",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -312,21 +305,21 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{api-gateway}}/saldoextrato/saldoextrato/credito",
+							"raw": "{{api-gateway}}/saldoextrato/saldoextrato/helloCredito",
 							"host": [
 								"{{api-gateway}}"
 							],
 							"path": [
 								"saldoextrato",
 								"saldoextrato",
-								"credito"
+								"helloCredito"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "/saldoextrato/saldoextrato/debito",
+					"name": "/saldoextrato/helloSaldoExtrato",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -340,6 +333,73 @@
 						},
 						"method": "GET",
 						"header": [],
+						"url": {
+							"raw": "{{api-gateway}}/saldoextrato/saldoextrato/helloSaldoExtrato",
+							"host": [
+								"{{api-gateway}}"
+							],
+							"path": [
+								"saldoextrato",
+								"saldoextrato",
+								"helloSaldoExtrato"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/saldoextrato/debito",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-gateway}}/saldoextrato/saldoextrato/helloDebito",
+							"host": [
+								"{{api-gateway}}"
+							],
+							"path": [
+								"saldoextrato",
+								"saldoextrato",
+								"helloDebito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "debitar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"debitValue\": 100,\r\n  \"id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{api-gateway}}/saldoextrato/saldoextrato/debito",
 							"host": [
@@ -353,6 +413,44 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "creditar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"creditValue\": 150.50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-gateway}}/saldoextrato/saldoextrato/credito",
+							"host": [
+								"{{api-gateway}}"
+							],
+							"path": [
+								"saldoextrato",
+								"saldoextrato",
+								"credito"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -362,6 +460,16 @@
 				{
 					"name": "incluir conta",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -388,8 +496,184 @@
 					"response": []
 				},
 				{
+					"name": "Busca conta e investimento",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"agencia\": \"123\",\r\n  \"banco\": \"222\",\r\n  \"limite\": 1000,\r\n  \"numero\": \"123456\",\r\n  \"tipoConta\": \"CORRENTE\",\r\n  \"cliente\": {\r\n    \"nome\": \"Cleber Conta Corrente\",\r\n    \"cpfCnpj\": \"41254598457\",\r\n    \"tipo\": \"FISICO\",\r\n    \"endereco\": {\r\n      \"bairro\": \"Vila A\",\r\n      \"cep\": \"09360660\",\r\n      \"complemento\": \"\",\r\n      \"ddd\": \"11\",\r\n      \"gia\": \"S\",\r\n      \"ibge\": \"S11\",\r\n      \"localidade\": \"Mauá\",\r\n      \"logradouro\": \"Rua\",\r\n      \"siafi\": \"siafi\",\r\n      \"uf\": \"SP\"\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-gateway}}/conta/investimento/v1/1",
+							"host": [
+								"{{api-gateway}}"
+							],
+							"path": [
+								"conta",
+								"investimento",
+								"v1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista todos investimentos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"agencia\": \"123\",\r\n  \"banco\": \"222\",\r\n  \"limite\": 1000,\r\n  \"numero\": \"123456\",\r\n  \"tipoConta\": \"CORRENTE\",\r\n  \"cliente\": {\r\n    \"nome\": \"Cleber Conta Corrente\",\r\n    \"cpfCnpj\": \"41254598457\",\r\n    \"tipo\": \"FISICO\",\r\n    \"endereco\": {\r\n      \"bairro\": \"Vila A\",\r\n      \"cep\": \"09360660\",\r\n      \"complemento\": \"\",\r\n      \"ddd\": \"11\",\r\n      \"gia\": \"S\",\r\n      \"ibge\": \"S11\",\r\n      \"localidade\": \"Mauá\",\r\n      \"logradouro\": \"Rua\",\r\n      \"siafi\": \"siafi\",\r\n      \"uf\": \"SP\"\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-gateway}}/conta/investimento/v1/list",
+							"host": [
+								"{{api-gateway}}"
+							],
+							"path": [
+								"conta",
+								"investimento",
+								"v1",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resgatar investimento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idAccount\": 1, \r\n  \"idInvestiments\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-gateway}}/conta/investimento/v1/resgate/1",
+							"host": [
+								"{{api-gateway}}"
+							],
+							"path": [
+								"conta",
+								"investimento",
+								"v1",
+								"resgate",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca conta",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"agencia\": \"123\",\r\n  \"banco\": \"222\",\r\n  \"limite\": 1000,\r\n  \"numero\": \"123456\",\r\n  \"tipoConta\": \"CORRENTE\",\r\n  \"cliente\": {\r\n    \"nome\": \"Cleber Conta Corrente\",\r\n    \"cpfCnpj\": \"41254598457\",\r\n    \"tipo\": \"FISICO\",\r\n    \"endereco\": {\r\n      \"bairro\": \"Vila A\",\r\n      \"cep\": \"09360660\",\r\n      \"complemento\": \"\",\r\n      \"ddd\": \"11\",\r\n      \"gia\": \"S\",\r\n      \"ibge\": \"S11\",\r\n      \"localidade\": \"Mauá\",\r\n      \"logradouro\": \"Rua\",\r\n      \"siafi\": \"siafi\",\r\n      \"uf\": \"SP\"\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-gateway}}/conta/conta/v1/1",
+							"host": [
+								"{{api-gateway}}"
+							],
+							"path": [
+								"conta",
+								"conta",
+								"v1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "hello",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -419,7 +703,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"idCliente\": 1,\r\n  \"quantidade\": 10,\r\n  \"tipo\": \"TESOURO_PREFIXADO_2024\"\r\n}",
+							"raw": "{\r\n  \"idCliente\": 1,\r\n  \"quantidade\": 5,\r\n  \"tipo\": \"TESOURO_PREFIXADO_2024\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

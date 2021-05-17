@@ -27,11 +27,11 @@ public class CreditDTO implements Serializable {
 		this.id = id;
 	}
 
-	public BigDecimal getValue() {
+	public BigDecimal getCreditValue() {
 		return creditValue;
 	}
 
-	public void setValue(BigDecimal creditValue) {
+	public void setCreditValue(BigDecimal creditValue) {
 		this.creditValue = creditValue;
-	}	
+	}
 }

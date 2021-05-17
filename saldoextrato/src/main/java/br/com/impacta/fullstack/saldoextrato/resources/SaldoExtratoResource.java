@@ -27,43 +27,57 @@ public class SaldoExtratoResource {
 	@Autowired
 	private SaldoExtratoService service;
 
-	@HystrixCommand(fallbackMethod = "getDebitoAlternativeVoid")
-	@PostMapping
+	@HystrixCommand(fallbackMethod = "getHelloAlternative")
+	@GetMapping(value = "/helloSaldoExtrato")
+	public ResponseEntity<String> getHello(){
+		return ResponseEntity.ok("Hello Saldo Extrato");
+	}
+	
+	@HystrixCommand(fallbackMethod = "getHelloAlternative")
+	@GetMapping(value = "/helloDebito")
+	public ResponseEntity<String> getHelloDebito(){
+		ResponseEntity<String> hello = service.getHelloDebit();
+		return ResponseEntity.ok(hello.getBody());
+	}
+	
+	@HystrixCommand(fallbackMethod = "getHelloAlternative")
+	@GetMapping(value = "/helloCredito")
+	public ResponseEntity<String> getHelloCredito(){
+		ResponseEntity<String> hello = service.getHelloCredit();
+		return ResponseEntity.ok(hello.getBody());
+	}
+	
+//	@HystrixCommand(fallbackMethod = "getAlternativeVoid")
+	@PostMapping(value = "/debito")
 	public ResponseEntity<Void> insert(@Valid @RequestBody DebitDTO objDto) {
 		service.insert(objDto);
 		return ResponseEntity.noContent().build();
 	}
 	
-	@GetMapping(value = "/{id}")
-	public ResponseEntity<List<Extrato>> findDebitById(@PathVariable Long id) {
-		List<Extrato> obj = service.findExtratoById(id);
-		return ResponseEntity.ok().body(obj);
-	}
-	
-	@HystrixCommand(fallbackMethod = "getDebitoAlternative")
-	@GetMapping(value = "/debito")
-	public ResponseEntity<String> getHelloDebit(){
-		ResponseEntity<String> hello = service.getHelloDebit();
-		return ResponseEntity.ok(hello.getBody());
-	}
-	
-	@PostMapping
+//	@HystrixCommand(fallbackMethod = "getAlternativeVoid")
+	@PostMapping(value = "/credito")
 	public ResponseEntity<Void> insert(@Valid @RequestBody CreditDTO objDto) {
 		service.insert(objDto);
 		return ResponseEntity.noContent().build();
 	}
 	
-	@GetMapping(value = "/{id}")
+	@GetMapping(value = "/debito/{id}")
+	public ResponseEntity<List<Extrato>> findDebitById(@PathVariable Long id) {
+		List<Extrato> obj = service.findExtratoById(id);
+		return ResponseEntity.ok().body(obj);
+	}
+	
+	@GetMapping(value = "/credito/{id}")
 	public ResponseEntity<List<Extrato>> findCreditById(@PathVariable Long id) {
 		List<Extrato> obj = service.findExtratoCreditById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	
-	public ResponseEntity<String> getDebitoAlternative(){
+	public ResponseEntity<String> getHelloAlternative(){
 		return ResponseEntity.ok("Tente novamente mais tarde !!!");
 	}
 	
-	public ResponseEntity<Void> getDebitoAlternativeVoid(){
+	public ResponseEntity<Void> getAlternativeVoid(){
 		return ResponseEntity.noContent().build();
 	}
 }

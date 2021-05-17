@@ -47,6 +47,4 @@ public class SaldoExtratoService {
 	public List<Extrato> findExtratoCreditById(Long id) {
 		return creditoFeignClient.findExtratoById(id);
 	}
-	
-	
 }

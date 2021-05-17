@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.impacta.fullstack.debito.domain.Conta;
 import br.com.impacta.fullstack.debito.domain.Extrato;
 import br.com.impacta.fullstack.debito.dto.DebitDTO;
 import br.com.impacta.fullstack.debito.services.DebitService;
@@ -28,8 +25,6 @@ import io.swagger.annotations.ApiResponses;
 @Api(value = "Debit")
 public class DebitResource {
 	
-	private static final Logger LOG = LoggerFactory.getLogger(DebitResource.class);
-
 	@Autowired
 	private DebitService service;
 

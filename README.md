@@ -1,12 +1,12 @@
 # MBA_Full_Stack_Developer_Impacta
 # Projeto de conclusão da disciplina de Microservices & Serverless Architecture
 
-### 1 - Efetuar clone do projetgit o.
+### 1 - Efetuar clone do projeto.
 ```
 git clone git@github.com:cleber-impacta/MicroserviceServerlessArc.git
 ```
 
-### 2 - Abrir o cmd/terminal, acessar a pasta do projeto e e depois a pasta docker compose
+### 2 - Abrir o cmd/terminal, acessar a pasta do projeto e depois a pasta docker compose
 
 ### 3 - Executar comando no cmd/terminal
 ```

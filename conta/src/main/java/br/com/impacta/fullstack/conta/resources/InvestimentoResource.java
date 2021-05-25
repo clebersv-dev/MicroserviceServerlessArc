@@ -1,10 +1,8 @@
 package br.com.impacta.fullstack.conta.resources;
 
-import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import javax.validation.Valid;
 
@@ -15,16 +13,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.impacta.fullstack.conta.domain.Conta;
-import br.com.impacta.fullstack.conta.domain.Investimento;
 import br.com.impacta.fullstack.conta.dto.InvestimentoContaDTO;
 import br.com.impacta.fullstack.conta.dto.InvestimentoDTO;
 import br.com.impacta.fullstack.conta.dto.RegasteDTO;
 import br.com.impacta.fullstack.conta.dto.TipoInvestimentosDTO;
 import br.com.impacta.fullstack.conta.enums.TipoInvestimentos;
-import br.com.impacta.fullstack.conta.exceptions.ObjectNotFoundException;
 import br.com.impacta.fullstack.conta.services.ContaService;
 import br.com.impacta.fullstack.conta.services.InvestimentoService;
 import io.swagger.annotations.Api;
@@ -36,6 +31,8 @@ import io.swagger.annotations.ApiResponses;
 @RequestMapping(value = "/investimento/v1")
 @Api(value = "Investimento")
 public class InvestimentoResource {
+	
+	private static String SUCESSO = "Operação Efetuada com Sucesso!";
 
 	@Autowired
 	private InvestimentoService service;
@@ -59,10 +56,9 @@ public class InvestimentoResource {
 			@ApiResponse(code = 403, message = "You do not have permission to access this resource"),
 			@ApiResponse(code = 500, message = "an exception was thrown"), })
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Void> insert(@Valid @RequestBody InvestimentoDTO objDto) {
-		Investimento obj = service.insert(objDto);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.created(uri).build();
+	public ResponseEntity<String> insert(@Valid @RequestBody InvestimentoDTO objDto) {
+		service.insert(objDto);
+		return ResponseEntity.created(null).body(SUCESSO);
 	}
 	
 	@ApiOperation(value = "Regaste investiments into the database")
@@ -70,13 +66,11 @@ public class InvestimentoResource {
 			@ApiResponse(code = 401, message = "You do not have permission to access this resource ((Unauthorized))"),
 			@ApiResponse(code = 403, message = "You do not have permission to access this resource"),
 			@ApiResponse(code = 500, message = "an exception was thrown"), })
-	@RequestMapping(value = "/resgate/{id}" , method = RequestMethod.POST)
-	public ResponseEntity<Void> regasteInvestiments(@Valid @RequestBody RegasteDTO objDto) {
-		
+	@RequestMapping(value = "/resgate" , method = RequestMethod.POST)
+	public ResponseEntity<String> regasteInvestiments(@Valid @RequestBody RegasteDTO objDto) {
 		Conta account = serviceConta.findAccount(objDto.getIdAccount()); 
 		service.resgateInvestimento(account, objDto);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(account.getId()).toUri();
-		return ResponseEntity.created(uri).build();
+		return ResponseEntity.created(null).body(SUCESSO);
 	}
 	
 	

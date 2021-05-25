@@ -19,7 +19,6 @@ import br.com.impacta.fullstack.conta.dto.RegasteDTO;
 import br.com.impacta.fullstack.conta.enums.TipoOperacao;
 import br.com.impacta.fullstack.conta.exceptions.ObjectNotFoundException;
 import br.com.impacta.fullstack.conta.exceptions.SaldoInsuficiente;
-import br.com.impacta.fullstack.conta.repository.ContaInvestimentoRepository;
 import br.com.impacta.fullstack.conta.repository.ContaRepository;
 import br.com.impacta.fullstack.conta.repository.ExtratoRepository;
 import br.com.impacta.fullstack.conta.repository.InvestimentoRepository;
@@ -47,7 +46,7 @@ public class InvestimentoService {
 		Cliente cli = cliService.find(objDto.getIdCliente());
 
 		Conta cc = cliService.findAccount(objDto.getIdCliente());
-
+		
 		objDto.setValorUnitario(objDto.getTipo().getValue());
 
 		cc = validaSaldo(cc, objDto.getQuantidade(), objDto.getValorUnitario());

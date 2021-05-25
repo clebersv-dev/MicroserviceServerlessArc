@@ -5,8 +5,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.ResponseEntity;
@@ -32,8 +30,6 @@ import io.swagger.annotations.ApiResponses;
 @Api(value = "Conta")
 public class ContaResource {
 	
-	private static final Logger LOG = LoggerFactory.getLogger(ContaResource.class);
-
 	@Autowired
 	private ContaService service;
 

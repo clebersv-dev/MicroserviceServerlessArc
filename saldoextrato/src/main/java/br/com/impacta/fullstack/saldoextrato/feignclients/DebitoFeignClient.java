@@ -19,7 +19,7 @@ public interface DebitoFeignClient {
 	ResponseEntity<String> getHelloDebit();
 	
 	@PostMapping
-	ResponseEntity<Void> insert(DebitDTO obj);
+	ResponseEntity<String> insert(DebitDTO obj);
 	
 	@GetMapping(value = "/{id}")
 	List<Extrato> findExtratoById(Long id);

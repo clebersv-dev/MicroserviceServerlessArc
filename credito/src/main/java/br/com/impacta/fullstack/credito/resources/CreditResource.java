@@ -1,5 +1,6 @@
 package br.com.impacta.fullstack.credito.resources;
 
+import java.net.URI;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.impacta.fullstack.credito.domain.Cartao;
 import br.com.impacta.fullstack.credito.domain.Conta;
@@ -48,9 +50,10 @@ public class CreditResource {
 			@ApiResponse(code = 403, message = "You do not have permission to access this resource"),
 			@ApiResponse(code = 500, message = "an exception was thrown"), })
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Void> insert(@Valid @RequestBody CreditDTO objDto) {
-		Conta cc = service.insert(objDto);
-		return ResponseEntity.noContent().build();
+	public ResponseEntity<String> insert(@Valid @RequestBody CreditDTO objDto) {
+		Conta obj = service.insert(objDto);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+		return ResponseEntity.created(uri).body("Operação Efetuada com Sucesso!");
 	}
 	
 	@ApiOperation(value = "Update an object")

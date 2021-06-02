@@ -6,11 +6,16 @@
 git clone git@github.com:cleber-impacta/MicroserviceServerlessArc.git
 ```
 
-### 2 - Abrir o cmd/terminal, acessar a pasta do projeto e depois a pasta docker compose
+### 2 - Repositório para ambiente de Dev, importar os projetos em sua IDE de preferência. Para rodar no docker mudar de branch para docker_final
 
-### 3 - Executar comando no cmd/terminal
+### 3 - Sequencia de projetos para executar
 ```
-docker-compose up --build -d
+1 - config
+2 - eureka
+3 - zull
+4 - users
+5 - os demais
+
 ```
 
 ### 4 - Ter o [Postman](https://www.postman.com/downloads/) 
